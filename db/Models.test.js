@@ -8,3 +8,4 @@ test('sync should synchronize all models', async () => {
     console.error(err);
   }
 });
+
