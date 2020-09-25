@@ -3,7 +3,7 @@ const { getAll, getType, nameDir } = require('./image-urls.js');
 let urlList, roseList, whiteList, yellowList, platinumList;
 
 beforeAll(async (done) => {
-  urlList = await getAll();
+  urlList = await getAll()
   roseList = await getType('rose');
   whiteList = await getType('white');
   yellowList = await getType('yellow');

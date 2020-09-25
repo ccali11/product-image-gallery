@@ -26,7 +26,6 @@ const getAll = async () => {
 
 // This will return an array of urls of a given type (metal)
 const getType = async (type) => {
-
   return getAll()
       .then(urlsArr => {
         const typeArr = urlsArr.filter((url) => {
@@ -36,4 +35,17 @@ const getType = async (type) => {
       });
 };
 
-module.exports = { getAll, getType, nameDir };
+// Get a random url of the metal type provided
+const getRandomByType = async (type) => {
+  const metalList = await getType(type);
+  const randomIndex = Math.floor(Math.random() * metalList.length);
+  return metalList[randomIndex];
+};
+
+const getRandom = async () => {
+  const metalList = await getAll();
+  const randomIndex = Math.floor(Math.random() * metalList.length);
+  return metalList[randomIndex];
+};
+
+module.exports = { getAll, getType, getRandom, getRandomByType, nameDir };
