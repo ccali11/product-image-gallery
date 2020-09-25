@@ -4,8 +4,9 @@
   "description": "Displays images from database sorted by setting, metal, stone cut, and stone carat.",
   "main": "./server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --watch"
+    "test": "jest",
+    "build": "webpack --config webpack.config.js --watch",
+    "seed": "node ./db/seed-db/seed-db.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "webpack-dev": "^1.1.1",
