@@ -36,6 +36,4 @@ const getType = async (type) => {
       });
 };
 
-exports.getAll = getAll;
-exports.getType = getType;
-exports.nameDir = nameDir;
+module.exports = { getAll, getType, nameDir };

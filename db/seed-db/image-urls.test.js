@@ -1,4 +1,4 @@
-const { getAll, getType, nameDir } = require ('./image-urls.js');
+const { getAll, getType, nameDir } = require('./image-urls.js');
 
 let urlList, roseList, whiteList, yellowList, platinumList;
 
