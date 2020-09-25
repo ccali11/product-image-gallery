@@ -11,6 +11,7 @@ const nameDir = {
   'platinum': '\/p\/'
 };
 
+// This will return an array of all urls in the file
 const getAll = async () => {
   return fs.promises.readFile(path.join(__dirname, urlFile))
   .then((fileUrlBuffer) => {
@@ -23,6 +24,7 @@ const getAll = async () => {
   });
 };
 
+// This will return an array of urls of a given type (metal)
 const getType = async (type) => {
 
   return getAll()
