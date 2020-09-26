@@ -30,12 +30,29 @@ const staticImageGet = async () => {
 // Write a picture for every metal, carat, and cut for each product.
 
 const imageGet = async () => {
+  const metals = ['rose', 'white', 'yellow', 'platinum'];
+  const carats = [50, 100, 150, 200];
+  const cuts = ['asscher', 'emerald', 'oval', 'pear', 'princess', 'round'];
   const products = await Product.findAll();
-  const rose = await getRandomByType('rose');
-  const white = await getRandomByType('white');
-  const yellow = await getRandomByType('yellow');
-  const platinum = await getRandomByType('platinum');
-  // TODO: actually seed stuff.
+  for (let i = 1; i <= 100; i++) {
+    for (const metal of metals) {
+      for (const carat of carats) {
+        for (const cut of cuts) {
+          const randImage = await getRandomByType(metal);
+          await Image.create({
+            thumb: randImage,
+            image: randImage,
+            metal: metal,
+            carat: carat,
+            cut: cut,
+            product_id: i
+          });
+        }
+      }
+    }
+  }
 };
 
 module.exports = { productGet, staticImageGet, imageGet };
+
+staticImageGet();
