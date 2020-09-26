@@ -55,4 +55,8 @@ const imageGet = async () => {
 
 module.exports = { productGet, staticImageGet, imageGet };
 
-staticImageGet();
+// TO RUN, uncomment functions below
+
+// productGet();
+// staticImageGet();
+// imageGet();
