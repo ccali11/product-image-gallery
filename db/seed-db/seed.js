@@ -57,6 +57,14 @@ module.exports = { productGet, staticImageGet, imageGet };
 
 // TO RUN, uncomment functions below
 
-// productGet();
-// staticImageGet();
-// imageGet();
+// (() => {
+//   sync()
+//   .then(() => {
+//     productGet();
+//   })
+//   .then(() => {
+//     imageGet();
+//   });
+// })();
+
+//staticImageGet();
