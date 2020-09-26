@@ -36,6 +36,9 @@ const StaticImage = sequelize.define('StaticImage', {
 const Image = sequelize.define('Image', {
   thumb: { type: DataTypes.STRING },
   image: { type: DataTypes.STRING },
+  metal: { type: DataTypes.STRING },
+  carat: { type: DataTypes.INTEGER },
+  cut: { type: DataTypes.STRING },
   product_id: {
     type: DataTypes.INTEGER,
     references: {
