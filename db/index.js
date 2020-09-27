@@ -19,7 +19,7 @@ const getDefaults = async (product_id) => {
   // Querying and pushing default custom images
   const Images = await Image.findAll({
     where: {
-      product_id: product_id
+      product_id: product_id,
       metal: 'white',
       carat: 100,
       cut: 'asscher'
