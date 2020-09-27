@@ -12,6 +12,8 @@ const Container = styled.div`
 const Carousel = styled.div`
   display: flex;
   border: 1px solid black;
+  overflow: auto;
+  height: 80vh;
   flex-direction: column;
 `;
 
@@ -33,6 +35,10 @@ const ProductOptions = styled.div`
   border: 1px solid black;
 `;
 
+const Image = styled.img`
+  width: 400px;
+`;
+
 const Gallery = () => {
   return(
     <Container>
@@ -40,11 +46,16 @@ const Gallery = () => {
         <Thumb>1</Thumb>
         <Thumb>2</Thumb>
         <Thumb>3</Thumb>
+        <Thumb>4</Thumb>
+        <Thumb>5</Thumb>
+        <Thumb>6</Thumb>
+        <Thumb>7</Thumb>
+        <Thumb>8</Thumb>
+        <Thumb>9</Thumb>
+        <Thumb>10</Thumb>
       </Carousel>
       <ImageView>
-        <h1>
-          ImageView
-        </h1>
+        <Image />
       </ImageView>
       <ProductOptions>
         <h1>
