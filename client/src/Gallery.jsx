@@ -25,18 +25,24 @@ const Thumb = styled.div`
 `;
 
 const ImageView = styled.div`
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
   width: 40vw;
   height: 80vh;
+  justify-content: center;
+`;
+
+const Image = styled.div`
+border: 1px solid black;
+height: 500px;
+width: 500px;
+align-self: center;
 `;
 
 const ProductOptions = styled.div`
   width: 40vw;
   border: 1px solid black;
-`;
-
-const Image = styled.img`
-  width: 400px;
 `;
 
 const Gallery = () => {
@@ -55,7 +61,7 @@ const Gallery = () => {
         <Thumb>10</Thumb>
       </Carousel>
       <ImageView>
-        <Image />
+        <Image>Image</Image>
       </ImageView>
       <ProductOptions>
         <h1>
