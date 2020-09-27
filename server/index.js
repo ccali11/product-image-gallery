@@ -5,6 +5,12 @@ const app = express();
 const port = 3030;
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Serve up static files
+app.get('/', (req, res) => {
+  // TODO: Serve static files
+});
 
 // This API endpoint returns a set of default URLs to populate the carousel
 app.get('/gallery/:product_id', (req, res) => {
