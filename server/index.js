@@ -5,9 +5,10 @@ const app = express();
 const port = 3030;
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// This API endpoint returns a set of default URLs to populate the carousel
 app.get('/gallery/:product_id', (req, res) => {
-  // TODO return default images.
   const pid = req.params.product_id;
   db.getDefaults(pid)
     .then((galleryUrls) => {

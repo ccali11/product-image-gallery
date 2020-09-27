@@ -6,12 +6,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'client/dist'),
   },
+  mode: 'development',
   module: {
     rules: [
-      {
-        test: /\.css$/i,
-        use: 'css-loader',
-      },
       {
         test: /\.jsx$/,
         exclude: /(node_modules|bower_components)/,
