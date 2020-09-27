@@ -10,10 +10,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: 'css-loader',
-      },
-      {
         test: /\.jsx$/,
         exclude: /(node_modules|bower_components)/,
         use: {
