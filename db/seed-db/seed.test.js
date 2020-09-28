@@ -3,28 +3,36 @@ const { Product, StaticImage, Image, sync } = require('../Models.js');
 const { Op } = require('sequelize');
 const { productGet, staticImageGet, imageGet } = require('./seed.js');
 
-beforeAll(async () =>{
-  await sync();
+// beforeAll(async (done) => {
+//   await sync();
+//   done();
+// });
+
+describe.skip('seed.js', (done) => {
+  test('productGet fills the product table with 100 unique random names', async (done) => {
+    await productGet()
+      .then(() => {
+        const products = await Product.findAll();
+        expect(products.length).toEqual(100);
+      });
+    done();
+  });
+
+  test('staticImageGet fills the StaticImages table with 3 pics for each product listing', async (done) => {
+    await staticImageGet()
+      .then(() => {
+        const staticImages = await StaticImage.findAll();
+        expect(staticImages.length).toEqual(300);
+      });
+    done();
+  })
+
+  test.skip('imageGet fills the Images table with pictures for every combination of metal, cut, and carat for every item', async (done) => {
+    await imageGet()
+      .then(() => {
+        const images = Images.findAll();
+        expect(Images.length).toEqual(9600);
+      });
+  })
+  done();
 });
-
-afterAll(async () => {
-  await productGet;
-  await staticImageGet;
-  // await imageGet;
-})
-
-test('productGet fills the product table with 100 unique random names', async () => {
-  await productGet()
-    .then(() => {
-      const products = Product.findAll();
-      expect(products.length).toEqual(100);
-    });
-});
-
-test('staticImageGet fills the StaticImages table with 3 pics for each product listing', async () => {
-  await staticImageGet()
-    .then(() => {
-      const staticImages = StaticImage.findAll();
-      expect(staticImages.length).toEqual(300);
-    });
-})
