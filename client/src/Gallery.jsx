@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import Carousel from './Carousel.jsx';
-// import ImageView from './ImageView.jsx';
+import ImageView from './ImageView.jsx';
 // import ProductOptions from './ProductOptions.jsx';
 
 const Container = styled.div`
@@ -11,42 +11,6 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   `;
-
-////////// IMAGE VIEW
-
-const ImageView = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 40vw;
-  min-height: px;
-  border: 1px solid black;
-  justify-content: space-around;
-  overflow: auto;
-  margin-left: 40px;
-  margin-right: 40px;
-`;
-
-const Image = styled.div`
-border: 1px solid black;
-height: 500px;
-width: 500px;
-align-self: center;
-`;
-
-const Description = styled.div`
-  height: 20px;
-  border: 1px solid black;
-`;
-
-const CutSelector = styled.div`
-  height: 40px;
-  border: 1px solid black;
-`;
-
-const CaratSelector = styled.div`
-  height: 40px;
-  border: 1px solid black;
-`;
 
 ////////// PRODUCT OPTIONS
 
@@ -141,13 +105,8 @@ const Gallery = () => {
   return(
     <Container>
       <Carousel />
-      <ImageView>
-        Image View
-        <Image>Image</Image>
-        <Description>Description</Description>
-        <CutSelector>CutSelector</CutSelector>
-        <CaratSelector>CaratSelector</CaratSelector>
-      </ImageView>
+      <ImageView />
+
       <ProductOptions>
         <MetalName>Metal Name</MetalName>
         <Name>Product Name</Name>
