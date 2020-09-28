@@ -52,4 +52,4 @@ const getSpecific = async (product_id, metal, cut, carat) => {
   };
 };
 
-exports.getDefaults = getDefaults;
+module.exports = { getDefaults, getSpecific };
