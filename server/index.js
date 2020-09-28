@@ -20,11 +20,12 @@ app.get('/gallery/:product_id', (req, res) => {
     });
 });
 
-app.get('gallery/:product_id/:metal/:cut/:carat', (req, res) => {
-  const [product_id, metal, cut, carat] = req.params;
+app.get('/custom/:product_id/:metal/:cut/:carat', (req, res) => {
+  const { product_id, metal, cut, carat } = req.params;
   db.getSpecific(product_id, metal, cut, carat)
     .then((urls) => {
       res.send(urls);
+      res.end();
     })
     .catch((err) => {
       console.error(err);
