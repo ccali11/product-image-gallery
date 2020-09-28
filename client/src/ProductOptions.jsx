@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MetalSelector from './MetalSelector.jsx';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ const ProductOptionsDiv = styled.div`
   justify-content: flex-start;
   min-width: 25vw;
   width: 25vw;
-  height: 60vh;
+  height: 70vh;
   min-heigh: 60vh;
   border: 1px solid black;
 `;
@@ -39,28 +40,6 @@ const SettingOnly = styled.span`
   font-size: 10px;
   border: 1px solid black;
   margin-left: 20px;
-`;
-
-const MetalSelector = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  font-size: 15px;
-  border: 1px solid black;
-  margin-bottom: 15px;
-`;
-
-const SelectedMetal = styled.div`
-  flex-basis: 100%;
-  margin-bottom: 10px;
-`
-
-const MetalButton = styled.button`
-  width: 60px;
-  font-size: 18px;
-  border: 1px solid black;
-  margin-right: 10px;
 `;
 
 const ChooseSetting = styled.button`
@@ -100,13 +79,7 @@ const ProductOptions = () => {
             (setting only)
           </SettingOnly>
         </Cost>
-        <MetalSelector>
-          <SelectedMetal>Metal Name</SelectedMetal>
-          <MetalButton>14KR</MetalButton>
-          <MetalButton>18KW</MetalButton>
-          <MetalButton>18KY</MetalButton>
-          <MetalButton>PT</MetalButton>
-        </MetalSelector>
+        <MetalSelector />
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist>❤ WISH LIST</AddToWishlist>
         <ShippingBlurb>Shipping blurb here</ShippingBlurb>
