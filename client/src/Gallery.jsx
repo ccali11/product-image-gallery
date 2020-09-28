@@ -15,6 +15,7 @@ const Carousel = styled.div`
   overflow: auto;
   height: 80vh;
   flex-direction: column;
+  min-width: 100px;
 `;
 
 const Thumb = styled.div`
@@ -27,10 +28,11 @@ const Thumb = styled.div`
 const ImageView = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 500px;
   border: 1px solid black;
   width: 40vw;
   height: 80vh;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 const Image = styled.div`
@@ -42,6 +44,22 @@ align-self: center;
 
 const ProductOptions = styled.div`
   width: 40vw;
+  min-width: 40vw;
+  border: 1px solid black;
+`;
+
+const Description = styled.div`
+  height: 20px;
+  border: 1px solid black;
+`;
+
+const CutSelector = styled.div`
+  height: 40px;
+  border: 1px solid black;
+`;
+
+const CaratSelector = styled.div`
+  height: 40px;
   border: 1px solid black;
 `;
 
@@ -61,7 +79,11 @@ const Gallery = () => {
         <Thumb>10</Thumb>
       </Carousel>
       <ImageView>
+        Image View
         <Image>Image</Image>
+        <Description>Description</Description>
+        <CutSelector>CutSelector</CutSelector>
+        <CaratSelector>CaratSelector</CaratSelector>
       </ImageView>
       <ProductOptions>
         <h1>
