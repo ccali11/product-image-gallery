@@ -9,6 +9,8 @@ const Container = styled.div`
   justify-content: space-between;
   `;
 
+////////// CAROUSEL
+
 const Carousel = styled.div`
   display: flex;
   border: 1px solid black;
@@ -24,6 +26,8 @@ const Thumb = styled.div`
   height: 100px;
   font-size: 100px;
 `;
+
+////////// IMAGE VIEW
 
 const ImageView = styled.div`
   display: flex;
@@ -62,6 +66,14 @@ const CutSelector = styled.div`
 
 const CaratSelector = styled.div`
   height: 40px;
+  border: 1px solid black;
+`;
+
+////////// PRODUCT OPTIONS
+
+const ProductOptions = styled.div`
+  width: 40vw;
+  min-width: 40vw;
   border: 1px solid black;
 `;
 

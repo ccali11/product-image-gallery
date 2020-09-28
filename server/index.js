@@ -17,7 +17,7 @@ app.get('/gallery/:product_id', (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-    })
+    });
 });
 
 app.listen(port, () => {
