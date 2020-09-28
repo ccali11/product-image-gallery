@@ -48,12 +48,6 @@ width: 500px;
 align-self: center;
 `;
 
-const ProductOptions = styled.div`
-  width: 40vw;
-  min-width: 40vw;
-  border: 1px solid black;
-`;
-
 const Description = styled.div`
   height: 20px;
   border: 1px solid black;

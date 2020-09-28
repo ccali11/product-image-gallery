@@ -16,7 +16,7 @@ const productGet = async () => {
 const staticImageGet = async () => {
   const results = await Product.findAll();
   for (let i = 1; i <= results.length; i++) {
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < 8; j++) {
       const imageUrl = await getRandom();
       await StaticImage.create({
         thumb: imageUrl,
