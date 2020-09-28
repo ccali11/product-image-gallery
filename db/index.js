@@ -48,7 +48,7 @@ const getSpecific = async (product_id, metal, cut, carat) => {
 
   return {
     thumb: images[0].dataValues.thumb,
-    image: images[0].dataValues.thumb
+    image: images[0].dataValues.image
   };
 };
 
