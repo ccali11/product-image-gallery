@@ -24,7 +24,7 @@ const staticImageGet = async () => {
   for (let i = 1; i <= results.length; i++) {
     for (let j = 0; j < 8; j++) {
       const imageUrl = await getRandom();
-      const thumbUrl = imageUrl.replace(/\.png/, '_tn.jpg');
+      const thumbUrl = imageUrl.replace(/\.(png|jpg)/, '_tn.jpg');
       await StaticImage.create({
         thumb: thumbUrl,
         image: imageUrl,
@@ -64,7 +64,7 @@ const imageGet = async () => {
 module.exports = { productGet, staticImageGet, imageGet };
 
 (async () => {
-  await sync()
+  return await sync()
   .then(async () => {
     await productGet();
   })
