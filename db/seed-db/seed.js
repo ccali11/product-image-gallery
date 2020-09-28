@@ -63,17 +63,15 @@ const imageGet = async () => {
 
 module.exports = { productGet, staticImageGet, imageGet };
 
-// (async () => {
-//   await sync()
-//   .then(async () => {
-//     await productGet();
-//   })
-//   .then(async () => {
-//     await staticImageGet();
-//   })
-//   .then(async () => {
-//     await imageGet();
-//   });
-// })();
-
-productGet();
+(async () => {
+  await sync()
+  .then(async () => {
+    await productGet();
+  })
+  .then(async () => {
+    await staticImageGet();
+  })
+  .then(async () => {
+    await imageGet();
+  });
+})();
