@@ -6,8 +6,14 @@ const { Op } = require('sequelize');
 // Writes 100 names to the Products table
 
 const productGet = async () => {
+  const previousNames = [];
   for (let i = 0; i < 100; i++) {
-    await Product.create({ name: faker.name.firstName() });
+    let name = faker.name.firstName();
+    while (previousNames.indexOf(name) !== -1) {
+      name = faker.name.firstName();
+    }
+    previousNames.push(name);
+    await Product.create({ name: name });
   }
 };
 
@@ -57,15 +63,17 @@ const imageGet = async () => {
 
 module.exports = { productGet, staticImageGet, imageGet };
 
-(async () => {
-  await sync()
-  .then(async () => {
-    await productGet();
-  })
-  .then(async () => {
-    await staticImageGet();
-  })
-  .then(async () => {
-    await imageGet();
-  });
-})();
+// (async () => {
+//   await sync()
+//   .then(async () => {
+//     await productGet();
+//   })
+//   .then(async () => {
+//     await staticImageGet();
+//   })
+//   .then(async () => {
+//     await imageGet();
+//   });
+// })();
+
+productGet();
