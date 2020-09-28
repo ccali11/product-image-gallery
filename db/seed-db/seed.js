@@ -18,7 +18,7 @@ const staticImageGet = async () => {
   for (let i = 1; i <= results.length; i++) {
     for (let j = 0; j < 8; j++) {
       const imageUrl = await getRandom();
-      const thumbUrl = imageUrl.replace(/\.png/, '_tn.png');
+      const thumbUrl = imageUrl.replace(/\.png/, '_tn.jpg');
       await StaticImage.create({
         thumb: thumbUrl,
         image: imageUrl,
@@ -40,7 +40,7 @@ const imageGet = async () => {
       for (const carat of carats) {
         for (const cut of cuts) {
           const randImage = await getRandomByType(metal);
-          const randThumb = randImage.replace(/\.jpg/, '_tn.jpg');
+          const randThumb = randImage.replace(/\.(jpg|png)/, '_tn.jpg');
           await Image.create({
             thumb: randThumb,
             image: randImage,
@@ -57,16 +57,15 @@ const imageGet = async () => {
 
 module.exports = { productGet, staticImageGet, imageGet };
 
-// TO RUN, uncomment functions below
-
-// (() => {
-//   sync()
-//   .then(() => {
-//     productGet();
-//   })
-//   .then(() => {
-//     imageGet();
-//   });
-// })();
-
-//staticImageGet();
+(async () => {
+  await sync()
+  .then(async () => {
+    await productGet();
+  })
+  .then(async () => {
+    await staticImageGet();
+  })
+  .then(async () => {
+    await imageGet();
+  });
+})();
