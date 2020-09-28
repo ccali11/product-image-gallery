@@ -1,6 +1,7 @@
 const { Product, StaticImage, Image, sync } = require('./Models.js');
 const { Op } = require('sequelize');
 
+// This function returns the default images for a given product.
 const getDefaults = async (product_id) => {
   const thumbUrlArray = [];
   const imageUrlArray = [];
@@ -25,13 +26,30 @@ const getDefaults = async (product_id) => {
       cut: 'asscher'
     }
   });
+
   Images.forEach((statUrl) => {
     thumbUrlArray.push(statUrl.dataValues.thumb);
     imageUrlArray.push(statUrl.dataValues.image);
   });
 
   // Returns completed array of image URLs for the carousel
-  return {thumbs: thumbUrlArray, images: imageUrlArray};
+  return { thumbs: thumbUrlArray, images: imageUrlArray };
+};
+
+const getSpecific = async (product_id, metal, cut, carat) => {
+  const images = await Image.findAll({
+    where: {
+      product_id: product_id,
+      metal: metal,
+      cut: cut,
+      carat: carat
+    }
+  });
+
+  return {
+    thumb: images[0].dataValues.thumb,
+    image: images[0].dataValues.thumb
+  };
 };
 
 exports.getDefaults = getDefaults;
