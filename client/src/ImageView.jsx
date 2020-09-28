@@ -36,7 +36,7 @@ const CaratSelector = styled.div`
 `;
 
 const ImageView = () => {
-  return(
+  return (
     <ImageViewDiv>
       Image View
       <Image>Image</Image>
