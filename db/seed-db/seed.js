@@ -6,8 +6,14 @@ const { Op } = require('sequelize');
 // Writes 100 names to the Products table
 
 const productGet = async () => {
+  const previousNames = [];
   for (let i = 0; i < 100; i++) {
-    await Product.create({ name: faker.name.firstName() });
+    let name = faker.name.firstName();
+    while (previousNames.indexOf(name) !== -1) {
+      name = faker.name.firstName();
+    }
+    previousNames.push(name);
+    await Product.create({ name: name });
   }
 };
 
@@ -16,10 +22,11 @@ const productGet = async () => {
 const staticImageGet = async () => {
   const results = await Product.findAll();
   for (let i = 1; i <= results.length; i++) {
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < 8; j++) {
       const imageUrl = await getRandom();
+      const thumbUrl = imageUrl.replace(/\.(png|jpg)/, '_tn.jpg');
       await StaticImage.create({
-        thumb: imageUrl,
+        thumb: thumbUrl,
         image: imageUrl,
         product_id: i
       });
@@ -39,8 +46,9 @@ const imageGet = async () => {
       for (const carat of carats) {
         for (const cut of cuts) {
           const randImage = await getRandomByType(metal);
+          const randThumb = randImage.replace(/\.(jpg|png)/, '_tn.jpg');
           await Image.create({
-            thumb: randImage,
+            thumb: randThumb,
             image: randImage,
             metal: metal,
             carat: carat,
@@ -55,16 +63,15 @@ const imageGet = async () => {
 
 module.exports = { productGet, staticImageGet, imageGet };
 
-// TO RUN, uncomment functions below
-
-// (() => {
-//   sync()
-//   .then(() => {
-//     productGet();
-//   })
-//   .then(() => {
-//     imageGet();
-//   });
-// })();
-
-//staticImageGet();
+(async () => {
+  return await sync()
+  .then(async () => {
+    await productGet();
+  })
+  .then(async () => {
+    await staticImageGet();
+  })
+  .then(async () => {
+    await imageGet();
+  });
+})();
