@@ -12,8 +12,7 @@ app.get('/gallery/:product_id', (req, res) => {
   const pid = req.params.product_id;
   db.getDefaults(pid)
     .then((galleryUrls) => {
-      res.send(galleryUrls);
-      res.end();
+      res.end(galleryUrls);
     })
     .catch((err) => {
       console.error(err);
@@ -24,8 +23,7 @@ app.get('/custom/:product_id/:metal/:cut/:carat', (req, res) => {
   const { product_id, metal, cut, carat } = req.params;
   db.getSpecific(product_id, metal, cut, carat)
     .then((urls) => {
-      res.send(urls);
-      res.end();
+      res.end(urls);
     })
     .catch((err) => {
       console.error(err);
