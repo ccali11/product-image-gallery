@@ -20,6 +20,17 @@ app.get('/gallery/:product_id', (req, res) => {
     });
 });
 
+app.get('gallery/:product_id/:metal/:cut/:carat', (req, res) => {
+  const [product_id, metal, cut, carat] = req.params;
+  db.getSpecific(product_id, metal, cut, carat)
+    .then((urls) => {
+      res.send(urls);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
