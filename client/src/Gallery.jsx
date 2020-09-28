@@ -12,10 +12,10 @@ const Container = styled.div`
 const Carousel = styled.div`
   display: flex;
   border: 1px solid black;
-  overflow: auto;
+  overflow-y: scroll;
   height: 80vh;
   flex-direction: column;
-  min-width: 100px;
+  min-width: 120px;
 `;
 
 const Thumb = styled.div`
@@ -28,11 +28,13 @@ const Thumb = styled.div`
 const ImageView = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 500px;
+  min-width: 550px;
+  min-height: 600px;
   border: 1px solid black;
   width: 40vw;
   height: 80vh;
   justify-content: space-around;
+  overflow: auto;
 `;
 
 const Image = styled.div`
