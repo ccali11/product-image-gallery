@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import Carousel from './Carousel.jsx';
+// import ImageView from './ImageView.jsx';
+// import ProductOptions from './ProductOptions.jsx';
 
 const Container = styled.div`
   display: flex;
@@ -8,29 +11,6 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   `;
-
-////////// CAROUSEL
-
-const Carousel = styled.div`
-  display: flex;
-  border: 1px solid black;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 80vh;
-  min-heigh: 80vh;
-  flex-direction: column;
-  width: 110px;
-`;
-
-const Thumb = styled.button`
-  border: 1px solid black;
-  width: 80px;
-  height: 80px;
-  font-size: 60px;
-  margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-`;
 
 ////////// IMAGE VIEW
 
@@ -160,18 +140,7 @@ const DropHint = styled.div`
 const Gallery = () => {
   return(
     <Container>
-      <Carousel>
-        <Thumb>1</Thumb>
-        <Thumb>2</Thumb>
-        <Thumb>3</Thumb>
-        <Thumb>4</Thumb>
-        <Thumb>5</Thumb>
-        <Thumb>6</Thumb>
-        <Thumb>7</Thumb>
-        <Thumb>8</Thumb>
-        <Thumb>9</Thumb>
-        <Thumb>10</Thumb>
-      </Carousel>
+      <Carousel />
       <ImageView>
         Image View
         <Image>Image</Image>
