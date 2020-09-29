@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const ImageViewDiv = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 40vw;
-  min-height: px;
+  width: 600px;
+  height: 630px;
   border: 1px solid black;
   justify-content: space-around;
   overflow: auto;
