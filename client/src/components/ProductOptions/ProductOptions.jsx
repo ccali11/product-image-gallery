@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import MetalSelector from './MetalSelector.jsx';
-import Ratings from './Ratings.jsx';
+import MetalSelector from './components/MetalSelector.jsx';
+import Ratings from './components/Ratings.jsx';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
