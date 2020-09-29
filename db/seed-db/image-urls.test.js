@@ -12,12 +12,10 @@ beforeAll(async (done) => {
 });
 
 describe('image-urls functions', (done) => {
-  test('getAll returns a list of urls from a file', async () => {
+  test('getAll returns a list of urls from a file', () => {
     expect(urlList.length).toBeGreaterThan(50);
   });
-
-
-  test('getType returns a list of filtered urls from a file', async () => {
+  test('getType returns a list of filtered urls from a file', () => {
     expect(roseList).toEqual(urlList.filter((url) => {
       return (url.includes('rose') || url.includes(nameDir.rose));
     }));

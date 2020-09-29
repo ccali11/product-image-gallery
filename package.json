@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "description": "Displays images from database sorted by setting, metal, stone cut, and stone carat.",
   "main": "./server/index.js",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    }
+  },
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "webpack --config ./webpack.config.js --watch",
     "seed": "node ./db/seed-db/seed.js"
   },
@@ -20,8 +29,8 @@
   },
   "homepage": "https://github.com/Edgar-Allan-Crows/product-image-gallery#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -33,9 +42,13 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "cors": "^2.8.5",
     "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "faker": "^5.1.0",
     "jest": "^26.4.2",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev": "^1.1.1"
