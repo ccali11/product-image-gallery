@@ -17,20 +17,37 @@ const SelectedMetal = styled.div`
 `
 
 const MetalButton = styled.button`
+  color: #4d4d4d;
   width: 60px;
   font-size: 18px;
   border: 1px solid black;
   margin-right: 10px;
 `;
 
+const RoseButton = styled(MetalButton)`
+  background-color: #f0bd9e;
+`;
+
+const WhiteButton = styled(MetalButton)`
+  background-color: #dedede;
+`;
+
+const YellowButton = styled(MetalButton)`
+  background-color: #efd9a7;
+`;
+
+const PlatinumButton = styled(MetalButton)`
+  background-color: #bdbdbd;
+`;
+
 const MetalSelector = () => {
   return (
     <MetalSelectorDiv>
       <SelectedMetal>Metal Name</SelectedMetal>
-      <MetalButton>14KR</MetalButton>
-      <MetalButton>18KW</MetalButton>
-      <MetalButton>18KY</MetalButton>
-      <MetalButton>PT</MetalButton>
+      <RoseButton>14KR</RoseButton>
+      <WhiteButton>18KW</WhiteButton>
+      <YellowButton>18KY</YellowButton>
+      <PlatinumButton>PT</PlatinumButton>
     </MetalSelectorDiv>
   );
 }
