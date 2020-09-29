@@ -76,4 +76,4 @@ const sync = async () => {
   }
 };
 
-module.exports = { sync, Product, StaticImage, Image };
+module.exports = { sync, Product, StaticImage, Image, Cost };
