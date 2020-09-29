@@ -9,16 +9,16 @@ const { productGet, staticImageGet, imageGet } = require('./seed.js');
 // });
 
 describe.skip('seed.js', (done) => {
-  test('productGet fills the product table with 100 unique random names', async (done) => {
+  test.skip('productGet fills the product table with 100 unique random names', async (done) => {
     await productGet()
-      .then(() => {
+      .then(async () => {
         const products = await Product.findAll();
         expect(products.length).toEqual(100);
       });
     done();
   });
 
-  test('staticImageGet fills the StaticImages table with 3 pics for each product listing', async (done) => {
+  test.skip('staticImageGet fills the StaticImages table with 3 pics for each product listing', async (done) => {
     await staticImageGet()
       .then(() => {
         const staticImages = await StaticImage.findAll();
