@@ -5,9 +5,9 @@ const ImageViewDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
-  height: 630px;
+  height: 500px;
   border: 1px solid black;
-  justify-content: space-around;
+  justify-content: flex-end;
   overflow: auto;
   margin-left: 40px;
   margin-right: 40px;
@@ -15,8 +15,8 @@ const ImageViewDiv = styled.div`
 
 const Image = styled.div`
 border: 1px solid black;
-height: 500px;
-width: 500px;
+height: 400px;
+width: 400px;
 align-self: center;
 `;
 
