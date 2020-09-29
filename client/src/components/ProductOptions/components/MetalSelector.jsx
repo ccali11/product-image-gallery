@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const MetalSelectorDiv = styled.div`
@@ -40,14 +40,28 @@ const PlatinumButton = styled(MetalButton)`
   background-color: #bdbdbd;
 `;
 
-const MetalSelector = () => {
+const MetalSelector = (props) => {
+  const fullNames = {
+    'yellow': 'Yellow Gold',
+    'platinum': 'Platinum',
+    'rose': 'Rose Gold',
+    'white': 'White Gold'
+  };
+
+  const clickHandler = {
+    rose: () => { props.set.setMetal('rose') },
+    white: () => { props.set.setMetal('white') },
+    yellow: () => { props.set.setMetal('yellow') },
+    platinum: () => {props.set.setMetal('platinum') }
+  }
+
   return (
     <MetalSelectorDiv>
-      <SelectedMetal>Metal Name</SelectedMetal>
-      <RoseButton>14KR</RoseButton>
-      <WhiteButton>18KW</WhiteButton>
-      <YellowButton>18KY</YellowButton>
-      <PlatinumButton>PT</PlatinumButton>
+      <SelectedMetal>Metal: {fullNames[props.state.metal]}</SelectedMetal>
+      <RoseButton onClick={clickHandler.rose}>14KR</RoseButton>
+      <WhiteButton onClick={clickHandler.white}>18KW</WhiteButton>
+      <YellowButton onClick={clickHandler.yellow}>18KY</YellowButton>
+      <PlatinumButton onClick={clickHandler.platinum}>PT</PlatinumButton>
     </MetalSelectorDiv>
   );
 }
