@@ -6,8 +6,7 @@ const CarouselDiv = styled.div`
   border: 1px solid black;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 80vh;
-  min-heigh: 80vh;
+  height: 500px;
   flex-direction: column;
   width: 110px;
 `;
