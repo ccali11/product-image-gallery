@@ -61,7 +61,7 @@ const DropHint = styled.div`
   height: 60px;
 `;
 
-const ProductOptions = () => {
+const ProductOptions = (props) => {
   return (
     <ProductOptionsDiv>
         <MetalName>Metal Name</MetalName>
@@ -73,7 +73,7 @@ const ProductOptions = () => {
             (setting only)
           </SettingOnly>
         </Cost>
-        <MetalSelector />
+        <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist>❤ WISH LIST</AddToWishlist>
         <ShippingBlurb>Shipping blurb here</ShippingBlurb>
