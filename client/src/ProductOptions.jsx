@@ -6,10 +6,8 @@ const ProductOptionsDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 25vw;
-  width: 25vw;
-  height: 70vh;
-  min-heigh: 60vh;
+  width: 375px;
+  height: 500px;
   border: 1px solid black;
 `;
 
