@@ -16,8 +16,8 @@ describe('/custom API route', () => {
       method: 'GET'
     }
     const urlObject = await axios(options);
-    expect(await urlObject.data.thumb).toEqual('https://radiant-dearth.s3.us-east-2.amazonaws.com/p/017_tn.jpg');
-    expect(await urlObject.data.image).toEqual('https://radiant-dearth.s3.us-east-2.amazonaws.com/p/017.png');
+    expect(typeof urlObject.data.thumb).toEqual('string');
+    expect(typeof urlObject.data.image).toEqual('string');
     done();
   });
 });
