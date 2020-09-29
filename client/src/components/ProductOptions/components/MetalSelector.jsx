@@ -17,7 +17,7 @@ const SelectedMetal = styled.div`
 `
 
 const MetalButton = styled.button`
-  color: #4d4d4d;
+  color: black;
   width: 60px;
   font-size: 18px;
   border: 1px solid black;
