@@ -15,7 +15,7 @@ const productGet = async () => {
     previousNames.push(name);
     await Product.create({
       name: name,
-      rating: Math.random() * 5,
+      rating: (Math.random() * 4) + 1,
       ratingcount: Math.floor(Math.random() * 9999999)
     });
   }
