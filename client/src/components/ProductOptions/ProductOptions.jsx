@@ -29,16 +29,32 @@ const Name = styled.div`
 const BuyButton = styled.button`
   color: white;
   width: 100%;
-  font-size: 20px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: 600;
   border: 1px solid black;
   margin-bottom: 15px;
   background-color: #3e9f8e;
+  transition: .5s;
+  &:hover {
+    background-color: #99c4b8;
+    color: black;
+  }
 `;
 
 const ChooseSetting = styled(BuyButton)`
 `;
 
 const AddToWishlist = styled(BuyButton)`
+`;
+
+const Heart = styled.span`
+  font-size: 18px;
+  margin-right: 5px;
+  transition: .5s;
+  ${AddToWishlist}:hover & {
+    color: #c73c9b;
+  }
 `;
 
 const ShippingBlurb = styled.div`
@@ -88,7 +104,7 @@ const ProductOptions = (props) => {
         <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
-        <AddToWishlist>❤ WISH LIST</AddToWishlist>
+        <AddToWishlist><Heart>❤</Heart> WISH LIST</AddToWishlist>
         <ShippingBlurb>Shipping blurb here</ShippingBlurb>
         <DropHint>Drop Hint</DropHint>
       </ProductOptionsDiv>
