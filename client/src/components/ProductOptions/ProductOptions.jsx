@@ -56,13 +56,11 @@ const Heart = styled.span`
 `;
 
 const ShippingBlurb = styled.div`
-  border: 1px solid black;
   height: 80px;
   margin-bottom: 10px;
 `;
 
 const DropHint = styled.div`
-  border: 1px solid black;
   height: 60px;
 `;
 

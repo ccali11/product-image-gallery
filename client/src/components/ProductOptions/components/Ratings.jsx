@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import StarRatings from 'react-star-ratings';
 
 const RatingDiv = styled.div`
-  border: 1px solid black;
   margin-bottom: 25px;
 `;
 
