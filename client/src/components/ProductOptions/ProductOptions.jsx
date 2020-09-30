@@ -26,18 +26,18 @@ const Name = styled.div`
   margin-bottom: 5px;
 `;
 
-const ChooseSetting = styled.button`
+const BuyButton = styled.button`
   width: 100%;
   font-size: 20px;
   border: 1px solid black;
   margin-bottom: 15px;
+  background-color: #3e9f8e;
 `;
 
-const AddToWishlist = styled.button`
-  width: 100%;
-  font-size: 20px;
-  border: 1px solid black;
-  margin-bottom: 25px;
+const ChooseSetting = styled(BuyButton)`
+`;
+
+const AddToWishlist = styled(BuyButton)`
 `;
 
 const ShippingBlurb = styled.div`
