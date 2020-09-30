@@ -56,13 +56,13 @@ const getSpecific = async (product_id, metal, cut, carat) => {
 };
 
 const getCost = async (product_id, metal) => {
-  const prices = await Cost.findAll({
+  const metalCode = metal.split('')[0];
+  const price = await Cost.findAll({
     where: {
-      product_id: product_id,
-      metal: metal
+      product_id: product_id
     }
   });
-  return { cost: prices[0].dataValues.cost };
+  return { cost: price[0][metalCode] };
 };
 
 module.exports = { getDefaults, getSpecific, getCost };
