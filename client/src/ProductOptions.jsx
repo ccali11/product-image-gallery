@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MetalSelector from './MetalSelector.jsx';
+import Ratings from './Ratings.jsx';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
@@ -21,11 +22,6 @@ const Name = styled.div`
   font-size: 26px;
   border: 1px solid black;
   margin-bottom: 5px;
-`;
-
-const Rating = styled.div`
-  border: 1px solid black;
-  margin-bottom: 25px;
 `;
 
 const Cost = styled.div`
@@ -70,7 +66,7 @@ const ProductOptions = () => {
     <ProductOptionsDiv>
         <MetalName>Metal Name</MetalName>
         <Name>Product Name</Name>
-        <Rating>Star rating / rating count</Rating>
+        <Ratings />
         <Cost>
           Cost
           <SettingOnly>
