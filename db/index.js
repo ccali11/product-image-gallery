@@ -77,4 +77,4 @@ const getRating = async (product_id) => {
   };
 };
 
-module.exports = { getDefaults, getSpecific, getCost };
+module.exports = { getDefaults, getSpecific, getCost, getRating };
