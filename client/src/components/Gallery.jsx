@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
   }
+
+  button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
 `;
 
 const Container = styled.div`
