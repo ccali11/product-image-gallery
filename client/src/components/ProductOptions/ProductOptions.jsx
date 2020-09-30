@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import MetalSelector from './components/MetalSelector.jsx';
 import Ratings from './components/Ratings.jsx';
 import Cost from './components/Cost.jsx';
+import axios from 'axios';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
@@ -51,11 +52,29 @@ const DropHint = styled.div`
 `;
 
 const ProductOptions = (props) => {
+  const [productData, setProductData] = useState({
+    name: null,
+    rating: 0,
+    ratingcount: 0
+  });
+
+  useEffect(() => {
+    axios.get(`http://localhost:3030/static/${props.state.pid}`)
+      .then((results) => {
+        setProductData({
+          name: results.data.name
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  })
+
   return (
     <ProductOptionsDiv>
         <MetalName>Metal Name</MetalName>
         <Name>Product Name</Name>
-        <Ratings />
+        <Ratings productData={productData}/>
         <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
