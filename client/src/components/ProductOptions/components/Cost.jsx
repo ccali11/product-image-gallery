@@ -15,7 +15,7 @@ const SettingOnly = styled.span`
 `;
 
 const Cost = (props) => {
-  const [cost, setCost] = useState(null);
+  const [cost, setCost] = useState(0);
 
   useEffect(() => {
     axios.get(`http://localhost:3030/cost/${props.state.pid}/${props.state.metal}`)
