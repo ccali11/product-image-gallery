@@ -56,7 +56,7 @@ const ProductOptions = (props) => {
         <MetalName>Metal Name</MetalName>
         <Name>Product Name</Name>
         <Ratings />
-        <Cost state={ props.state }/>
+        <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist>❤ WISH LIST</AddToWishlist>
