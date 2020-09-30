@@ -1,4 +1,4 @@
-const { Product, StaticImage, Image, sync } = require('./Models.js');
+const { Product, StaticImage, Image, Cost, sync } = require('./Models.js');
 const { Op } = require('sequelize');
 
 // This function returns the default images for a given product.
@@ -6,7 +6,6 @@ const getDefaults = async (product_id) => {
   const thumbUrlArray = [];
   const imageUrlArray = [];
   let customThumb, customImage;
-
   // Querying and pushing default static images
   const staticImages = await StaticImage.findAll({
     where: {
@@ -17,7 +16,6 @@ const getDefaults = async (product_id) => {
     thumbUrlArray.push(statUrl.dataValues.thumb);
     imageUrlArray.push(statUrl.dataValues.image);
   });
-
   // Querying and pushing default custom images
   const Images = await Image.findAll({
     where: {
@@ -31,7 +29,6 @@ const getDefaults = async (product_id) => {
     customThumb = custUrl.dataValues.thumb;
     customImage = custUrl.dataValues.image;
   });
-
   // Returns completed array of image URLs for the carousel
   return {
     custom: {
@@ -52,11 +49,20 @@ const getSpecific = async (product_id, metal, cut, carat) => {
       carat: carat
     }
   });
-
   return {
     thumb: images[0].dataValues.thumb,
     image: images[0].dataValues.image
   };
 };
 
-module.exports = { getDefaults, getSpecific };
+const getCost = async (product_id, metal) => {
+  const prices = await Cost.findAll({
+    where: {
+      product_id: product_id,
+      metal: metal
+    }
+  });
+  return { cost: prices[0].dataValues.cost };
+};
+
+module.exports = { getDefaults, getSpecific, getCost };
