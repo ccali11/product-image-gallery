@@ -34,7 +34,7 @@ const Gallery = () => {
     <Container>
       <Carousel state={{ thumbs }} set={{ setSelected }}/>
       <ImageView state={{ carat, cut, metal, pid, selected, images }} set={{ setCut, setCarat }} />
-      <ProductOptions state={{ metal }} set={{ setMetal, setThumbs, setImages }} />
+      <ProductOptions state={{ metal, pid }} set={{ setMetal, setThumbs, setImages }} />
     </Container>
   );
 }
