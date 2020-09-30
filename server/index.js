@@ -48,6 +48,18 @@ app.get('/cost/:product_id/:metal', (req, res) => {
     });
 });
 
+app.get('/rating/:product_id', (req, res) => {
+  const { product_id } = req.params;
+  db.getRating(product_id)
+    .then((data) => {
+      res.send(data);
+      res.end();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
