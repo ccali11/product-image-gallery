@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import MetalSelector from './components/MetalSelector.jsx';
 import Ratings from './components/Ratings.jsx';
@@ -58,11 +58,20 @@ const ProductOptions = (props) => {
     ratingcount: 0
   });
 
+  const fullNames = {
+    'yellow': 'Yellow Gold',
+    'platinum': 'Platinum',
+    'rose': 'Rose Gold',
+    'white': 'White Gold'
+  };
+
   useEffect(() => {
     axios.get(`http://localhost:3030/static/${props.state.pid}`)
       .then((results) => {
         setProductData({
-          name: results.data.name
+          name: results.data.name,
+          rating: results.data.rating,
+          ratingcount: results.data.ratingcount
         });
       })
       .catch((err) => {
@@ -72,8 +81,8 @@ const ProductOptions = (props) => {
 
   return (
     <ProductOptionsDiv>
-        <MetalName>Metal Name</MetalName>
-        <Name>Product Name</Name>
+        <MetalName>{fullNames[props.state.metal]}</MetalName>
+        <Name>{productData.name}</Name>
         <Ratings productData={productData}/>
         <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
