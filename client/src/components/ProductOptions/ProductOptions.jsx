@@ -11,18 +11,15 @@ const ProductOptionsDiv = styled.div`
   justify-content: flex-start;
   width: 375px;
   height: 500px;
-  border: 1px solid black;
 `;
 
 const MetalName = styled.div`
   font-size: 12px;
-  border: 1px solid black;
   margin-bottom: 5px;
 `;
 
 const Name = styled.div`
   font-size: 26px;
-  border: 1px solid black;
   margin-bottom: 5px;
 `;
 
@@ -32,8 +29,8 @@ const BuyButton = styled.button`
   height: 50px;
   font-size: 15px;
   font-weight: 600;
-  border: 1px solid black;
   margin-bottom: 15px;
+  border: 0px;
   background-color: #3e9f8e;
   transition: .5s;
   &:hover {

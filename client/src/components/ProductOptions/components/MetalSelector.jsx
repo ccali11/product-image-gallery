@@ -7,7 +7,6 @@ const MetalSelectorDiv = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   font-size: 15px;
-  border: 1px solid black;
   margin-bottom: 15px;
 `;
 
@@ -18,10 +17,14 @@ const SelectedMetal = styled.div`
 
 const MetalButton = styled.button`
   color: black;
-  width: 60px;
+  width: 65px;
+  height: 30px;
   font-size: 18px;
-  border: 1px solid black;
+  border: 0px;
   margin-right: 10px;
+  &:hover {
+    border: 1px solid #3e9f8e;
+  }
 `;
 
 const RoseButton = styled(MetalButton)`
