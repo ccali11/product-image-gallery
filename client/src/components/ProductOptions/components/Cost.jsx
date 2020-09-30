@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const CostDiv = styled.div`
   font-size: 20px;
@@ -14,10 +15,21 @@ const SettingOnly = styled.span`
 `;
 
 const Cost = (props) => {
+  const [cost, setCost] = useState(null);
+
+  useEffect(() => {
+    axios.get(`http://localhost:3030/cost/${props.state.pid}/${props.state.metal}`)
+      .then((cost) => {
+        setCost(cost.data.cost);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 
   return (
     <CostDiv>
-      Cost
+      Cost {cost}
       <SettingOnly>
         (setting only)
       </SettingOnly>
