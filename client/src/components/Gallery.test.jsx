@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import Gallery from './Gallery.jsx';
 import Adapter from 'enzyme-adapter-react-16';
+import Gallery from './Gallery.jsx';
 
 configure({ adapter: new Adapter() });
 

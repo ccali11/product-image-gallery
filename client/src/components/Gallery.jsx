@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-import Carousel from './Carousel.jsx';
-import ImageView from './ImageView.jsx';
-import ProductOptions from './ProductOptions.jsx';
+import Carousel from './Carousel/Carousel.jsx';
+import ImageView from './ImageView/ImageView.jsx';
+import ProductOptions from './ProductOptions/ProductOptions.jsx';
 
 const Container = styled.div`
   display: flex;
