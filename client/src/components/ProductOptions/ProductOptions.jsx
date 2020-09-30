@@ -27,6 +27,7 @@ const Name = styled.div`
 `;
 
 const BuyButton = styled.button`
+  color: white;
   width: 100%;
   font-size: 20px;
   border: 1px solid black;
@@ -77,7 +78,7 @@ const ProductOptions = (props) => {
       .catch((err) => {
         console.error(err);
       })
-  })
+  }, [props.state.pid])
 
   return (
     <ProductOptionsDiv>
