@@ -4,13 +4,11 @@ import axios from 'axios';
 
 const CostDiv = styled.div`
   font-size: 20px;
-  border: 1px solid black;
   margin-bottom: 25px;
 `;
 
 const SettingOnly = styled.span`
-  font-size: 10px;
-  border: 1px solid black;
+  font-size: 15px;
   margin-left: 20px;
 `;
 
@@ -29,7 +27,7 @@ const Cost = (props) => {
 
   return (
     <CostDiv>
-      Cost {cost}
+      ${cost}
       <SettingOnly>
         (setting only)
       </SettingOnly>
