@@ -82,7 +82,7 @@ const ProductOptions = (props) => {
   return (
     <ProductOptionsDiv>
         <MetalName>{fullNames[props.state.metal]}</MetalName>
-        <Name>{productData.name}</Name>
+        <Name>{productData.name} Diamond Engagement Ring</Name>
         <Ratings productData={productData}/>
         <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
