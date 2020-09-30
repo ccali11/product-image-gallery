@@ -1,5 +1,5 @@
 const { getAll, getType, getRandomByType, getRandom } = require('./image-urls.js');
-const { Product, StaticImage, Image, sync } = require('../Models.js');
+const { Product, Cost, StaticImage, Image, sync } = require('../Models.js');
 const faker = require('faker');
 const { Op } = require('sequelize');
 
@@ -13,9 +13,28 @@ const productGet = async () => {
       name = faker.name.firstName();
     }
     previousNames.push(name);
-    await Product.create({ name: name });
+    await Product.create({
+      name: name,
+      rating: Math.random() * 5,
+      ratingcount: Math.floor(Math.random() * 9999999)
+    });
   }
 };
+
+// Writes a cost for every metal type for each product
+
+const costGet = async () => {
+  const products = await Product.findAll();
+  for (let i = 1; i <= products.length; i++) {
+    await Cost.create({
+      product_id: i,
+      r: (Math.random() * 9000) + 1000,
+      y: (Math.random() * 9000) + 1000,
+      w: (Math.random() * 9000) + 1000,
+      p: (Math.random() * 9000) + 1000
+    });
+  }
+}
 
 // Write 3 random static images for each Product.
 
@@ -65,13 +84,16 @@ module.exports = { productGet, staticImageGet, imageGet };
 
 (async () => {
   return await sync()
-  .then(async () => {
-    await productGet();
-  })
-  .then(async () => {
-    await staticImageGet();
-  })
-  .then(async () => {
-    await imageGet();
-  });
+    .then(async () => {
+      await productGet();
+    })
+    .then(async () => {
+      await costGet();
+    })
+    .then(async () => {
+      await staticImageGet();
+    })
+    .then(async () => {
+      await imageGet();
+    });
 })();

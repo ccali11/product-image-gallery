@@ -31,10 +31,10 @@ const Cost = sequelize.define('Cost', {
       key: 'id'
     }
   },
-  y: { type: DataTypes.DECIMAL(10, 2) },
-  w: { type: DataTypes.DECIMAL(10, 2) },
-  r: { type: DataTypes.DECIMAL(10, 2) },
-  p: { type: DataTypes.DECIMAL(10, 2) }
+  y: { type: DataTypes.DECIMAL(9, 2) },
+  w: { type: DataTypes.DECIMAL(9, 2) },
+  r: { type: DataTypes.DECIMAL(9, 2) },
+  p: { type: DataTypes.DECIMAL(9, 2) }
 });
 
 const StaticImage = sequelize.define('StaticImage', {
