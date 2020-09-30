@@ -17,7 +17,7 @@ const Cost = (props) => {
 
   return (
     <CostDiv>
-      Cost {props.state.metal}
+      Cost
       <SettingOnly>
         (setting only)
       </SettingOnly>
