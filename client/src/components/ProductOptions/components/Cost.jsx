@@ -9,7 +9,7 @@ const CostDiv = styled.div`
 
 const SettingOnly = styled.span`
   font-size: 15px;
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 
 const Cost = (props) => {
