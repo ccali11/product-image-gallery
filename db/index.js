@@ -65,4 +65,16 @@ const getCost = async (product_id, metal) => {
   return { cost: price[0][metalCode] };
 };
 
+const getRating = async (product_id) => {
+  const rating = await Product.findAll({
+    where: {
+      id: product_id
+    }
+  });
+  return {
+    rating: rating[0].rating,
+    ratingcount: rating[0].ratingcount
+  };
+};
+
 module.exports = { getDefaults, getSpecific, getCost };
