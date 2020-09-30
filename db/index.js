@@ -72,9 +72,9 @@ const getStatic = async (product_id) => {
     }
   });
   return {
-    rating: rating[0].rating,
-    ratingcount: rating[0].ratingcount,
-    name: rating[0].name
+    rating: static[0].rating,
+    ratingcount: static[0].ratingcount,
+    name: static[0].name
   };
 };
 
