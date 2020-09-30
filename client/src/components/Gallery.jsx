@@ -5,6 +5,14 @@ import axios from 'axios';
 import Carousel from './Carousel/Carousel.jsx';
 import ImageView from './ImageView/ImageView.jsx';
 import ProductOptions from './ProductOptions/ProductOptions.jsx';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -28,10 +36,11 @@ const Gallery = () => {
         setThumbs(defaults.data.thumbs.unshift(defaults.data.custom.thumb));
         setImages(defaults.data.images.unshift(defaults.data.custom.image));
       });
-  });
+  }, [pid]);
 
   return(
     <Container>
+      <GlobalStyle />
       <Carousel state={{ thumbs }} set={{ setSelected }}/>
       <ImageView state={{ carat, cut, metal, pid, selected, images }} set={{ setCut, setCarat }} />
       <ProductOptions state={{ metal, pid }} set={{ setMetal, setThumbs, setImages }} />
