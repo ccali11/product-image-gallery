@@ -36,6 +36,18 @@ app.get('/custom/:product_id/:metal/:cut/:carat', (req, res) => {
     });
 });
 
+app.get('/cost/:product_id/:metal', (req, res) => {
+  const { product_id, metal } = req.params;
+  db.getCost(product_id, metal)
+    .then((cost) => {
+      res.send(cost);
+      res.end();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
