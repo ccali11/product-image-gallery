@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MetalSelector from './components/MetalSelector.jsx';
 import Ratings from './components/Ratings.jsx';
+import Cost from './components/Cost.jsx';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
@@ -22,18 +23,6 @@ const Name = styled.div`
   font-size: 26px;
   border: 1px solid black;
   margin-bottom: 5px;
-`;
-
-const Cost = styled.div`
-  font-size: 20px;
-  border: 1px solid black;
-  margin-bottom: 25px;
-`;
-
-const SettingOnly = styled.span`
-  font-size: 10px;
-  border: 1px solid black;
-  margin-left: 20px;
 `;
 
 const ChooseSetting = styled.button`
@@ -67,12 +56,7 @@ const ProductOptions = (props) => {
         <MetalName>Metal Name</MetalName>
         <Name>Product Name</Name>
         <Ratings />
-        <Cost>
-          Cost
-          <SettingOnly>
-            (setting only)
-          </SettingOnly>
-        </Cost>
+        <Cost state={ props.state }/>
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist>❤ WISH LIST</AddToWishlist>
