@@ -18,7 +18,23 @@ const sequelize = new Sequelize('productimages', 'root', '', {
 // Create Model Definitions
 
 const Product = sequelize.define('Product', {
-  name: { type: DataTypes.STRING }
+  name: { type: DataTypes.STRING },
+  rating: { type: DataTypes.DECIMAL(3, 2) },
+  ratingcount: { type: DataTypes.INTEGER }
+});
+
+const Cost = sequelize.define('Cost', {
+  product_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Product,
+      key: 'id'
+    }
+  },
+  y: { type: DataTypes.DECIMAL(9, 2) },
+  w: { type: DataTypes.DECIMAL(9, 2) },
+  r: { type: DataTypes.DECIMAL(9, 2) },
+  p: { type: DataTypes.DECIMAL(9, 2) }
 });
 
 const StaticImage = sequelize.define('StaticImage', {
@@ -60,4 +76,4 @@ const sync = async () => {
   }
 };
 
-module.exports = { sync, Product, StaticImage, Image };
+module.exports = { sync, Product, StaticImage, Image, Cost };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const MetalSelectorDiv = styled.div`
@@ -17,20 +17,51 @@ const SelectedMetal = styled.div`
 `
 
 const MetalButton = styled.button`
+  color: black;
   width: 60px;
   font-size: 18px;
   border: 1px solid black;
   margin-right: 10px;
 `;
 
-const MetalSelector = () => {
+const RoseButton = styled(MetalButton)`
+  background-color: #f0bd9e;
+`;
+
+const WhiteButton = styled(MetalButton)`
+  background-color: #dedede;
+`;
+
+const YellowButton = styled(MetalButton)`
+  background-color: #efd9a7;
+`;
+
+const PlatinumButton = styled(MetalButton)`
+  background-color: #bdbdbd;
+`;
+
+const MetalSelector = (props) => {
+  const fullNames = {
+    'yellow': 'Yellow Gold',
+    'platinum': 'Platinum',
+    'rose': 'Rose Gold',
+    'white': 'White Gold'
+  };
+
+  const clickHandler = {
+    rose: () => { props.set.setMetal('rose') },
+    white: () => { props.set.setMetal('white') },
+    yellow: () => { props.set.setMetal('yellow') },
+    platinum: () => {props.set.setMetal('platinum') }
+  }
+
   return (
     <MetalSelectorDiv>
-      <SelectedMetal>Metal Name</SelectedMetal>
-      <MetalButton>14KR</MetalButton>
-      <MetalButton>18KW</MetalButton>
-      <MetalButton>18KY</MetalButton>
-      <MetalButton>PT</MetalButton>
+      <SelectedMetal>Metal: {fullNames[props.state.metal]}</SelectedMetal>
+      <RoseButton onClick={clickHandler.rose}>14KR</RoseButton>
+      <WhiteButton onClick={clickHandler.white}>18KW</WhiteButton>
+      <YellowButton onClick={clickHandler.yellow}>18KY</YellowButton>
+      <PlatinumButton onClick={clickHandler.platinum}>PT</PlatinumButton>
     </MetalSelectorDiv>
   );
 }
