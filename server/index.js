@@ -48,9 +48,15 @@ app.get('/cost/:product_id/:metal', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 app.get('/static/:product_id', (req, res) => {
   const { product_id } = req.params;
   db.getStatic(product_id)
+=======
+app.get('/rating/:product_id', (req, res) => {
+  const { product_id } = req.params;
+  db.getRating(product_id)
+>>>>>>> 3369a44f697e0f79b6d7847e4aeb212eb0638bbb
     .then((data) => {
       res.send(data);
       res.end();
