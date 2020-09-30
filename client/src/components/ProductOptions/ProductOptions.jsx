@@ -52,6 +52,7 @@ const Heart = styled.span`
   ${AddToWishlist}:hover & {
     color: #c73c9b;
   }
+  color: ${props => (props.selected ? '#c73c9b': '#FFFFFF')};
 `;
 
 const ShippingBlurb = styled.div`
@@ -66,6 +67,7 @@ const DropHint = styled.div`
 `;
 
 const ProductOptions = (props) => {
+  const [wishClick, setWishClick] = useState(false);
   const [productData, setProductData] = useState({
     name: null,
     rating: 0,
@@ -101,7 +103,7 @@ const ProductOptions = (props) => {
         <Cost state={props.state}/>
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
-        <AddToWishlist><Heart>❤</Heart> WISH LIST</AddToWishlist>
+        <AddToWishlist selected={wishClick} onClick={e => setWishClick(!wishClick)}><Heart selected={wishClick}>❤</Heart> WISH LIST</AddToWishlist>
         <ShippingBlurb>Shipping blurb here</ShippingBlurb>
         <DropHint>Drop Hint</DropHint>
       </ProductOptionsDiv>
