@@ -68,10 +68,34 @@ const CaratSelector = styled.div`
   border: 1px solid black;
 `;
 
+
+const cuts = [
+  'Asscher',
+  'Emerald',
+  'Oval',
+  'Pear',
+  'Princess',
+  'Round'
+];
 const ImageView = (props) => {
   const [imgSource, setImgSource] = useState('');
   const state = props.state;
   const set = props.set;
+
+  const capFirst = (string) => {
+    const firstCap = string.charAt(0).toUpperCase();
+    const final = firstCap + string.slice(-(string.length - 1));
+    return final;
+  }
+
+  const clickHandler = {
+    Asscher: () => { set.setCut('asscher') },
+    Emerald: () => { set.setCut('emerald') },
+    Oval: () => { set.setCut('oval') },
+    Pear: () => { set.setCut('pear') },
+    Princess: () => { set.setCut('princess') },
+    Round: () => { set.setCut('round') }
+  };
 
   useEffect(() => {
     if (state.images) {
@@ -85,15 +109,15 @@ const ImageView = (props) => {
       <Description>Description</Description>
       <DropdownDiv>
         <CutMenu>
-          <CutDiv>Asscher</CutDiv>
-          <CutDiv>Emerald</CutDiv>
-          <CutDiv>Oval</CutDiv>
-          <CutDiv>Pear</CutDiv>
-          <CutDiv>Princess</CutDiv>
-          <CutDiv>Round</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[0]]}>{cuts[0]}</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[1]]}>{cuts[1]}</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[2]]}>{cuts[2]}</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[3]]}>{cuts[3]}</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[4]]}>{cuts[4]}</CutDiv>
+          <CutDiv onClick={clickHandler[cuts[5]]}>{cuts[5]}</CutDiv>
         </CutMenu>
         <CutSelector>
-          View with: GEMNAME AND ICON HERE
+          View with: {capFirst(state.cut)}
         </CutSelector>
       </DropdownDiv>
       <CaratSelector>CaratSelector</CaratSelector>
