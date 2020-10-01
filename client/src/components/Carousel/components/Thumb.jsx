@@ -16,6 +16,7 @@ const ThumbDiv = styled.button`
 
 const Thumbnail = styled.img`
   width: 100%;
+  object-fit:cover;
 `;
 
 const Thumb = (props) => {

@@ -18,12 +18,11 @@ const CarouselDiv = styled(ScrollContainer)`
     background-color: #F5F5F5;
   }
   &::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
     background-color: #F5F5F5;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.8);
     background-color: #3e9f8e;
   }
 `;
