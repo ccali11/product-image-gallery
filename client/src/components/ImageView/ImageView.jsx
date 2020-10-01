@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const ImageViewDiv = styled.div`
   display: flex;
@@ -35,12 +36,14 @@ const CaratSelector = styled.div`
 
 const ImageView = (props) => {
   const [imgSource, setImgSource] = useState('');
+  const state = props.state;
+  const set = props.set;
 
   useEffect(() => {
-    if (props.state.images) {
-      setImgSource(props.state.images[props.state.selected]);
+    if (state.images) {
+      setImgSource(state.images[state.selected]);
     }
-  });
+  }, [state.images, state.selected]);
 
   return (
     <ImageViewDiv>
