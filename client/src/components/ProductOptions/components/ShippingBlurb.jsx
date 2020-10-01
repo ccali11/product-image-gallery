@@ -4,8 +4,8 @@ import moment from 'moment';
 
 const TruckIcon = styled.img`
   float: left;
-  width: 70px;
-  margin-top: 10px;
+  width: 50px;
+  margin-top: 14px;
   margin-right: 10px;
 `;
 
