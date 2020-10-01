@@ -29,12 +29,10 @@ const getDefaults = async (product_id) => {
     customThumb = custUrl.dataValues.thumb;
     customImage = custUrl.dataValues.image;
   });
+  thumbUrlArray.unshift(customThumb);
+  imageUrlArray.unshift(customImage);
   // Returns completed array of image URLs for the carousel
   return {
-    custom: {
-      thumb: customThumb,
-      image: customImage
-    },
     thumbs: thumbUrlArray,
     images: imageUrlArray
   };
