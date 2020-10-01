@@ -1,39 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Thumb from './components/Thumb.jsx';
+import ScrollContainer from 'react-indiana-drag-scroll';
 
-const CarouselDiv = styled.div`
+const CarouselDiv = styled(ScrollContainer)`
+  direction: rtl;
   display: flex;
-  border: 1px solid black;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: auto;
   height: 500px;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
   width: 110px;
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.8);
+    background-color: #3e9f8e;
+  }
 `;
 
-const Thumb = styled.button`
-  border: 1px solid black;
-  width: 80px;
-  height: 80px;
-  font-size: 60px;
-  margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-`;
+const renderThumbs = (thumbs) => {
+  if (thumbs) {
+    return thumbs.map((url, index) => (
+        <Thumb source={url} key={index} />
+    ));
+  } else {
+    return null;
+  }
+};
 
-const Carousel = () => {
+const Carousel = (props) => {
+  const [thumbs, setThumbs] = useState(null);
+
+  useEffect(() => {
+    setThumbs(props.state.thumbs);
+  }, [props.state.thumbs]);
+
   return (
-    <CarouselDiv>
-      <Thumb>1</Thumb>
-      <Thumb>2</Thumb>
-      <Thumb>3</Thumb>
-      <Thumb>4</Thumb>
-      <Thumb>5</Thumb>
-      <Thumb>6</Thumb>
-      <Thumb>7</Thumb>
-      <Thumb>8</Thumb>
-      <Thumb>9</Thumb>
-      <Thumb>10</Thumb>
+    <CarouselDiv onClick={e => props.set.setSelected(thumbs.indexOf(e.target.src))} hideScrollbars={false}>
+      {renderThumbs(thumbs)}
     </CarouselDiv>
   );
 }
