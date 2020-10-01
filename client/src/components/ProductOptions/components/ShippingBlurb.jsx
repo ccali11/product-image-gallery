@@ -27,12 +27,9 @@ const ShippingBlurb = () => {
   return (
     <ShippingBlurbDiv>
           <TruckIcon src='https://radiant-dearth.s3.us-east-2.amazonaws.com/icons/my-truck.png'/>
-          <div>
-            Free Shipping. Free 30 Day Returns.
-          </div>
-          <div>
-            Order Now for Delivery <br/>by <ShipDate>{moment(date).format('dddd, MMMM Do')}</ShipDate>
-          </div>
+            Free Shipping. Free 30 Day Returns.<br/>
+            Order Now for Delivery <br/>
+            by <ShipDate>{moment(date).format('dddd, MMMM Do')}</ShipDate>
     </ShippingBlurbDiv>
   );
 };
