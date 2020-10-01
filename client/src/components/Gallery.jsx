@@ -35,18 +35,18 @@ const Gallery = () => {
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
-    axios.get(`http://localhost:3030/gallery/${pid}`)
+    axios.get(`http://localhost:3030/gallery/${pid}/${metal}/${cut}/${carat}`)
       .then((defaults) => {
         setThumbs(defaults.data.thumbs);
         setImages(defaults.data.images);
       });
-  }, [pid]);
+  }, [pid, metal, cut, carat]);
 
   return(
     <Container>
       <GlobalStyle />
       <Carousel state={{ thumbs }} set={{ setSelected }}/>
-      <ImageView state={{ carat, cut, metal, pid, selected, images }} set={{ setCut, setCarat }} />
+      <ImageView state={{ carat, cut, metal, pid, selected, images, thumbs }} set={{ setCut, setCarat, setThumbs }} />
       <ProductOptions state={{ metal, pid }} set={{ setMetal, setThumbs, setImages }} />
     </Container>
   );
