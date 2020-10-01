@@ -27,10 +27,13 @@ const CarouselDiv = styled(ScrollContainer)`
   }
 `;
 
-const renderThumbs = (thumbs) => {
+const renderThumbs = (thumbs, selected) => {
   if (thumbs) {
     return thumbs.map((url, index) => (
-        <Thumb source={url} key={index} />
+        <Thumb
+          source={url}
+          selected={(index === selected) ? true : false}
+          key={index} />
     ));
   } else {
     return null;
@@ -46,7 +49,7 @@ const Carousel = (props) => {
 
   return (
     <CarouselDiv onClick={e => props.set.setSelected(thumbs.indexOf(e.target.src))} hideScrollbars={false}>
-      {renderThumbs(thumbs)}
+      {renderThumbs(thumbs, props.state.selected)}
     </CarouselDiv>
   );
 }

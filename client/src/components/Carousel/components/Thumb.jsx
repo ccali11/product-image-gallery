@@ -10,20 +10,22 @@ const ThumbDiv = styled.button`
   height: 80px;
   font-size: 60px;
   margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: auto;
 `;
 
 const Thumbnail = styled.img`
   width: 100%;
   object-fit:cover;
+  border-radius: 5px;
+  transition: .75s;
+  border: ${props => (props.selected ? '2px solid #3e9f8e' : '2px solid #FFFFFF')};
 `;
 
 const Thumb = (props) => {
 
   return (
     <ThumbDiv>
-      <Thumbnail src={props.source} />
+      <Thumbnail selected={props.selected} src={props.source} />
     </ThumbDiv>
   );
 };
