@@ -21,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   display: flex;
-  border: 1px solid black;
   flex-direction: row;
   justify-content: center;
   `;
@@ -32,14 +31,14 @@ const Gallery = () => {
   const [cut, setCut] = useState('asscher');
   const [carat, setCarat] = useState(150);
   const [thumbs, setThumbs] = useState(null);
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState();
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
     axios.get(`http://localhost:3030/gallery/${pid}`)
       .then((defaults) => {
-        setThumbs(defaults.data.thumbs.unshift(defaults.data.custom.thumb));
-        setImages(defaults.data.images.unshift(defaults.data.custom.image));
+        setThumbs(defaults.data.thumbs);
+        setImages(defaults.data.images);
       });
   }, [pid]);
 
