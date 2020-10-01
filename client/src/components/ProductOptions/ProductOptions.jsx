@@ -57,6 +57,8 @@ const Heart = styled.span`
   color: ${props => (props.selected ? '#c73c9b': '#FFFFFF')};
 `;
 
+////////// Product Options Functional Component
+
 const ProductOptions = (props) => {
   const [wishClick, setWishClick] = useState(false);
   const [productData, setProductData] = useState({
