@@ -16,6 +16,11 @@ const RatingCount = styled.span`
 `;
 
 const Ratings = (props) => {
+
+  const formattedRatings = (ratingCount) => {
+    return ratingCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <RatingDiv>
       <StarRatings
@@ -26,7 +31,7 @@ const Ratings = (props) => {
         starSpacing="0"
         numberOfStars={5}
       />
-      <RatingCount>({props.productData.ratingcount})</RatingCount>
+      <RatingCount>({formattedRatings(props.productData.ratingcount)})</RatingCount>
     </RatingDiv>
   );
 };
