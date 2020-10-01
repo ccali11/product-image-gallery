@@ -2,14 +2,22 @@ const { Product, StaticImage, Image, Cost, sync } = require('./Models.js');
 const { Op } = require('sequelize');
 
 // This function returns the default images for a given product.
-const getDefaults = async (product_id) => {
+const getDefaults = async (product_id, metal, cut, carat) => {
   const thumbUrlArray = [];
   const imageUrlArray = [];
   let customThumb, customImage;
   // Querying and pushing default static images
   const staticImages = await StaticImage.findAll({
     where: {
+      product_id: product_id
+    }
+  });
+  const custom = await Image.findAll({
+    where: {
       product_id: product_id,
+      metal: metal,
+      carat: carat,
+      cut: cut
     }
   });
   staticImages.forEach((statUrl) => {
@@ -17,39 +25,12 @@ const getDefaults = async (product_id) => {
     imageUrlArray.push(statUrl.dataValues.image);
   });
   // Querying and pushing default custom images
-  const Images = await Image.findAll({
-    where: {
-      product_id: product_id,
-      metal: 'white',
-      carat: 100,
-      cut: 'asscher'
-    }
-  });
-  Images.forEach((custUrl) => {
-    customThumb = custUrl.dataValues.thumb;
-    customImage = custUrl.dataValues.image;
-  });
-  thumbUrlArray.unshift(customThumb);
-  imageUrlArray.unshift(customImage);
+  thumbUrlArray.unshift(custom[0].thumb);
+  imageUrlArray.unshift(custom[0].image);
   // Returns completed array of image URLs for the carousel
   return {
     thumbs: thumbUrlArray,
     images: imageUrlArray
-  };
-};
-
-const getSpecific = async (product_id, metal, cut, carat) => {
-  const images = await Image.findAll({
-    where: {
-      product_id: product_id,
-      metal: metal,
-      cut: cut,
-      carat: carat
-    }
-  });
-  return {
-    thumb: images[0].dataValues.thumb,
-    image: images[0].dataValues.image
   };
 };
 
@@ -76,4 +57,5 @@ const getStatic = async (product_id) => {
   };
 };
 
-module.exports = { getDefaults, getSpecific, getCost, getStatic };
+// removed getSpecific()
+module.exports = { getDefaults, getCost, getStatic };
