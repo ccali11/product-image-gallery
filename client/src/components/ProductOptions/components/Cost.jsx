@@ -23,7 +23,7 @@ const Cost = (props) => {
       .catch((err) => {
         console.error(err);
       });
-  });
+  }, [props.state.metal, props.state.pid]);
 
   return (
     <CostDiv>
