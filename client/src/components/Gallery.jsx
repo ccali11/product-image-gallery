@@ -45,7 +45,7 @@ const Gallery = () => {
   return(
     <Container>
       <GlobalStyle />
-      <Carousel state={{ thumbs }} set={{ setSelected }}/>
+      <Carousel state={{ thumbs, selected }} set={{ setSelected }}/>
       <ImageView state={{ carat, cut, metal, pid, selected, images, thumbs }} set={{ setCut, setCarat, setThumbs }} />
       <ProductOptions state={{ metal, pid }} set={{ setMetal, setThumbs, setImages }} />
     </Container>
