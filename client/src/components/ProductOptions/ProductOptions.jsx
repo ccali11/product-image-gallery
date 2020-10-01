@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Cost from './components/Cost.jsx';
+import DropHint from './components/DropHint.jsx';
 import MetalSelector from './components/MetalSelector.jsx';
 import Ratings from './components/Ratings.jsx';
-import Cost from './components/Cost.jsx';
 import ShippingBlurb from './components/ShippingBlurb.jsx';
 import axios from 'axios';
 
@@ -56,24 +57,6 @@ const Heart = styled.span`
   color: ${props => (props.selected ? '#c73c9b': '#FFFFFF')};
 `;
 
-const DropHint = styled.div`
-  height: 60px;
-`;
-
-const DropHintTxt = styled.div`
-  margin-top: 15px;
-  margin-left: 60px;
-  transition: .5s;
-  &:hover {
-    color: #3e9f8e;
-  }
-`;
-
-const HeartEnvelope = styled.img`
-  height: 40px;
-  float: left;
-`;
-
 const ProductOptions = (props) => {
   const [wishClick, setWishClick] = useState(false);
   const [productData, setProductData] = useState({
@@ -113,12 +96,7 @@ const ProductOptions = (props) => {
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist selected={wishClick} onClick={e => setWishClick(!wishClick)}><Heart selected={wishClick}>❤</Heart> WISH LIST</AddToWishlist>
         <ShippingBlurb />
-        <DropHint>
-          <HeartEnvelope src='https://radiant-dearth.s3.us-east-2.amazonaws.com/icons/drop-hint.png' />
-          <DropHintTxt>
-            Drop Hint
-          </DropHintTxt>
-        </DropHint>
+        <DropHint />
       </ProductOptionsDiv>
   );
 };
