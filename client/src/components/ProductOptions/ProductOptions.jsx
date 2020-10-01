@@ -47,7 +47,7 @@ const AddToWishlist = styled(BuyButton)`
 `;
 
 const Heart = styled.span`
-  font-size: 18px;
+  font-size: 15px;
   margin-right: 5px;
   transition: .5s;
   ${AddToWishlist}:hover & {
@@ -58,6 +58,20 @@ const Heart = styled.span`
 
 const DropHint = styled.div`
   height: 60px;
+`;
+
+const DropHintTxt = styled.div`
+  margin-top: 15px;
+  margin-left: 60px;
+  transition: .5s;
+  &:hover {
+    color: #3e9f8e;
+  }
+`;
+
+const HeartEnvelope = styled.img`
+  height: 40px;
+  float: left;
 `;
 
 const ProductOptions = (props) => {
@@ -99,7 +113,12 @@ const ProductOptions = (props) => {
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist selected={wishClick} onClick={e => setWishClick(!wishClick)}><Heart selected={wishClick}>❤</Heart> WISH LIST</AddToWishlist>
         <ShippingBlurb />
-        <DropHint>Drop Hint</DropHint>
+        <DropHint>
+          <HeartEnvelope src='https://radiant-dearth.s3.us-east-2.amazonaws.com/icons/drop-hint.png' />
+          <DropHintTxt>
+            Drop Hint
+          </DropHintTxt>
+        </DropHint>
       </ProductOptionsDiv>
   );
 };
