@@ -4,6 +4,7 @@ import MetalSelector from './components/MetalSelector.jsx';
 import Ratings from './components/Ratings.jsx';
 import Cost from './components/Cost.jsx';
 import axios from 'axios';
+import moment from 'moment';
 
 const ProductOptionsDiv = styled.div`
   display: flex;
@@ -55,9 +56,22 @@ const Heart = styled.span`
   color: ${props => (props.selected ? '#c73c9b': '#FFFFFF')};
 `;
 
+const TruckIcon = styled.img`
+  float: left;
+  width: 70px;
+  margin-top: 10px;
+  margin-right: 10px;
+`;
+
 const ShippingBlurb = styled.div`
+  font-size: 13px;
   height: 80px;
   margin-bottom: 10px;
+`;
+
+const ShipDate = styled.span`
+  font-weight: 800;
+  color: #3e9f8e;
 `;
 
 const DropHint = styled.div`
@@ -91,7 +105,10 @@ const ProductOptions = (props) => {
       .catch((err) => {
         console.error(err);
       })
-  }, [props.state.pid])
+  }, [props.state.pid]);
+
+  const date = new Date();
+  date.setDate(date.getDate() + 3);
 
   return (
     <ProductOptionsDiv>
@@ -102,7 +119,15 @@ const ProductOptions = (props) => {
         <MetalSelector set={props.set} state={props.state}/>
         <ChooseSetting>CHOOSE THIS SETTING</ChooseSetting>
         <AddToWishlist selected={wishClick} onClick={e => setWishClick(!wishClick)}><Heart selected={wishClick}>❤</Heart> WISH LIST</AddToWishlist>
-        <ShippingBlurb>Shipping blurb here</ShippingBlurb>
+        <ShippingBlurb>
+          <TruckIcon src='https://radiant-dearth.s3.us-east-2.amazonaws.com/icons/my-truck.png'/>
+          <div>
+            Free Shipping. Free 30 Day Returns.
+          </div>
+          <div>
+            Order Now for Delivery <br/>by <ShipDate>{moment(date).format('dddd, MMMM Do')}</ShipDate>
+          </div>
+        </ShippingBlurb>
         <DropHint>Drop Hint</DropHint>
       </ProductOptionsDiv>
   );
