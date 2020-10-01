@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const ImageViewDiv = styled.div`
@@ -6,18 +6,16 @@ const ImageViewDiv = styled.div`
   flex-direction: column;
   width: 600px;
   height: 500px;
-  border: 1px solid black;
   justify-content: flex-end;
   overflow: auto;
   margin-left: 40px;
   margin-right: 40px;
 `;
 
-const Image = styled.div`
-border: 1px solid black;
-height: 400px;
-width: 400px;
-align-self: center;
+const Image = styled.img`
+  border: 0;
+  width: 400px;
+  align-self: center;
 `;
 
 const Description = styled.div`
@@ -35,11 +33,18 @@ const CaratSelector = styled.div`
   border: 1px solid black;
 `;
 
-const ImageView = () => {
+const ImageView = (props) => {
+  const [imgSource, setImgSource] = useState('');
+
+  useEffect(() => {
+    if (props.state.images) {
+      setImgSource(props.state.images[props.state.selected]);
+    }
+  });
+
   return (
     <ImageViewDiv>
-      Image View
-      <Image>Image</Image>
+      <Image src={imgSource} />
       <Description>Description</Description>
       <CutSelector>CutSelector</CutSelector>
       <CaratSelector>CaratSelector</CaratSelector>
