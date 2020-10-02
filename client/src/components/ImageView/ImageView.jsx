@@ -8,7 +8,7 @@ const ImageViewDiv = styled.div`
   flex-direction: column;
   width: 600px;
   height: 500px;
-  justify-content: flex-end;
+  justify-content: space-between;
   overflow: hidden;
   margin-left: 40px;
   margin-right: 40px;
@@ -31,6 +31,8 @@ const CaratSelector = styled.div`
 `;
 
 const Selectors = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
