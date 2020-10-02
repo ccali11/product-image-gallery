@@ -10,7 +10,7 @@ const DropdownDiv = styled.div`
 const CutSelectorButton = styled.button`
   position: relative;
   display: flex;
-  height: 35px;
+  height: 30px;
   width: 100%;
   border: 1px solid lightgrey;
   justify-content: center;
