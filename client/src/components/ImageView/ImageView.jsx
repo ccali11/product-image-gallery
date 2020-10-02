@@ -35,6 +35,19 @@ const ImageView = (props) => {
   const state = props.state;
   const set = props.set;
 
+  const selectorRender = () => {
+    if (state.selected === 0) {
+      return (
+        <div>
+          <Description>Description</Description>
+          <CutSelector set={set} state={state}/>
+          <CaratSelector>CaratSelector</CaratSelector>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
 
   useEffect(() => {
     if (state.images) {
@@ -45,9 +58,7 @@ const ImageView = (props) => {
   return (
     <ImageViewDiv>
       <Image src={imgSource} />
-      <Description>Description</Description>
-      <CutSelector set={set} state={state}/>
-      <CaratSelector>CaratSelector</CaratSelector>
+      {selectorRender()}
     </ImageViewDiv>
   );
 };
