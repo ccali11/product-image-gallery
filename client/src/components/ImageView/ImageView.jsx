@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import CaratSelector from './components/CaratSelector.jsx';
 import CutSelector from './components/CutSelector.jsx';
 import Description from './components/Description.jsx';
 
@@ -24,10 +25,7 @@ const Image = styled.img`
   align-self: center;
 `;
 
-const CaratSelector = styled.div`
-  height: 30px;
-  border: 1px solid black;
-`;
+
 
 const Selectors = styled.div`
   display: flex;
@@ -46,7 +44,7 @@ const ImageView = (props) => {
         <Selectors>
           <Description state={state}/>
           <CutSelector set={set} state={state}/>
-          <CaratSelector>CaratSelector</CaratSelector>
+          <CaratSelector/>
         </Selectors>
       );
     } else {
