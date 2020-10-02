@@ -9,7 +9,9 @@ const ImageViewDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
+  min-width: 600px;
   height: 500px;
+  min-height: 500px;
   justify-content: space-between;
   overflow: hidden;
   margin-left: 40px;
@@ -44,7 +46,7 @@ const ImageView = (props) => {
         <Selectors>
           <Description state={state}/>
           <CutSelector set={set} state={state}/>
-          <CaratSelector/>
+          <CaratSelector set={set}/>
         </Selectors>
       );
     } else {

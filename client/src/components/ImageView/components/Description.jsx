@@ -5,7 +5,7 @@ const DescriptionDiv = styled.div`
   height: 20px;
   text-align: center;
   font-size: 13px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 `;
 
 const renderDescription = (state) => {
