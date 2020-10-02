@@ -5,16 +5,16 @@ const CaratSelectorDiv = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 15px;
+  height: 50px;
   border: 0;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 3px;
 `;
 
 const CaratOptionSpan = styled.span`
   position: relative;
-  display: inline-block;
+  display: inline;
 `;
 
 const CaratOptions = styled.input`
@@ -27,7 +27,10 @@ const CaratOptions = styled.input`
 const CaratLabel = styled.span`
   opacity: 0;
   position: absolute;
-  left: 95px;
+  top: 25px;
+  left: 47px;
+  width: 50px;
+  text-align: center;
   transition: .5s;
   ${CaratOptionSpan}:hover & {
     opacity: 100;
