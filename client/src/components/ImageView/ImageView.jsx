@@ -16,6 +16,7 @@ const ImageViewDiv = styled.div`
 `;
 
 const Image = styled.img`
+  display: ${props => (props.src ? 'block' : 'none')};
   border: 0;
   width: 400px;
   height: 400px;
@@ -24,7 +25,7 @@ const Image = styled.img`
 `;
 
 const CaratSelector = styled.div`
-  height: 40px;
+  height: 30px;
   border: 1px solid black;
 `;
 
