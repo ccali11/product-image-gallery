@@ -7,10 +7,24 @@ border: 1px solid black;
 text-align: center;
 `;
 
-const Description = () => {
+const renderDescription = (state) => {
+  const { metal, cut, carat, productData } = state;
+  const { name } = productData;
+
+  return (
+    <span>
+      Description
+    </span>
+  );
+}
+
+const Description = (props) => {
+  const state = props.state;
+
+
   return(
     <DescriptionDiv>
-      Description
+      {}
     </DescriptionDiv>
   );
 };

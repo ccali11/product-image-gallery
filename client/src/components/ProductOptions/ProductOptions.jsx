@@ -61,11 +61,7 @@ const Heart = styled.span`
 
 const ProductOptions = (props) => {
   const [wishClick, setWishClick] = useState(false);
-  const [productData, setProductData] = useState({
-    name: null,
-    rating: 0,
-    ratingcount: 0
-  });
+  const productData = props.state.productData;
 
   const fullNames = {
     'yellow': 'Yellow Gold',
@@ -73,20 +69,6 @@ const ProductOptions = (props) => {
     'rose': 'Rose Gold',
     'white': 'White Gold'
   };
-
-  useEffect(() => {
-    axios.get(`http://localhost:3030/static/${props.state.pid}`)
-      .then((results) => {
-        setProductData({
-          name: results.data.name,
-          rating: results.data.rating,
-          ratingcount: results.data.ratingcount
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-  }, [props.state.pid]);
 
   return (
     <ProductOptionsDiv>
