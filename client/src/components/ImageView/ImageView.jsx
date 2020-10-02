@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import CutSelector from './components/CutSelector.jsx';
+import Description from './components/Description.jsx';
 
 const ImageViewDiv = styled.div`
   display: flex;
@@ -20,11 +21,6 @@ const Image = styled.img`
   height: 400px;
   object-fit: cover;
   align-self: center;
-`;
-
-const Description = styled.div`
-  height: 20px;
-  border: 1px solid black;
 `;
 
 const CaratSelector = styled.div`
@@ -47,7 +43,7 @@ const ImageView = (props) => {
     if (state.selected === 0) {
       return (
         <Selectors>
-          <Description>Description</Description>
+          <Description state={state}/>
           <CutSelector set={set} state={state}/>
           <CaratSelector>CaratSelector</CaratSelector>
         </Selectors>
