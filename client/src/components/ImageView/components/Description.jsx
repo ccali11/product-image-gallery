@@ -5,7 +5,7 @@ const DescriptionDiv = styled.div`
   height: 20px;
   text-align: center;
   font-size: 13px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 const renderDescription = (state) => {
@@ -25,11 +25,13 @@ const renderDescription = (state) => {
     return final;
   };
 
-  const description = `${fullNames[metal]} ${name} Setting with a(n) ${capFirst(cut)} Cut Gem, Shown with a ${carat/100} Carat Stone`;
+  const description1 = `${fullNames[metal]} ${name} Setting with a(n) ${capFirst(cut)} Cut Gem,`;
+  const description2 = `Shown with a ${carat/100} Carat Stone`;
 
   return (
     <span>
-      {description}
+      {description1} <br/>
+      {description2}
     </span>
   );
 }
