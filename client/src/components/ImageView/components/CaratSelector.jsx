@@ -9,7 +9,7 @@ const CaratSelectorDiv = styled.div`
   border: 0;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 3px;
+  margin-top: 10px;
 `;
 
 const CaratOptionSpan = styled.span`
