@@ -13,12 +13,11 @@ const CarouselDiv = styled(ScrollContainer)`
   flex-direction: column;
   width: 110px;
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-    background-color: #F5F5F5;
+    background-color: lightgrey;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
     background-color: #F5F5F5;
   }
   &::-webkit-scrollbar-thumb {
