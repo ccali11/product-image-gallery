@@ -30,6 +30,10 @@ const CaratSelector = styled.div`
   border: 1px solid black;
 `;
 
+const Selectors = styled.div`
+  width: 100%;
+`;
+
 const ImageView = (props) => {
   const [imgSource, setImgSource] = useState('');
   const state = props.state;
@@ -38,11 +42,11 @@ const ImageView = (props) => {
   const selectorRender = () => {
     if (state.selected === 0) {
       return (
-        <div>
+        <Selectors>
           <Description>Description</Description>
           <CutSelector set={set} state={state}/>
           <CaratSelector>CaratSelector</CaratSelector>
-        </div>
+        </Selectors>
       );
     } else {
       return null;

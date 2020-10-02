@@ -2,42 +2,43 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DropdownDiv = styled.div`
-position:relative;
-display: inline-block;
+  position:relative;
+  width: 100%;
+  display: inline-block;
 `;
 
 const CutSelectorButton = styled.button`
-position: relative;
-display: flex;
-height: 35px;
-width: 100%;
-border: 1px solid lightgrey;
-justify-content: center;
-align-items: center;
+  position: relative;
+  display: flex;
+  height: 35px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CutMenu = styled.div`
-display: none;
-position: absolute;
-top: -180px;
-border: 1px solid lightgrey;
-background-color: white;
-z-index: 1;
-min-width: 100%;
-${DropdownDiv}:hover & {
-  display: block;
-}
+  display: none;
+  position: absolute;
+  top: -180px;
+  border: 1px solid lightgrey;
+  background-color: white;
+  z-index: 1;
+  min-width: 100%;
+  ${DropdownDiv}:hover & {
+    display: block;
+  }
 `;
 
 const CutDiv = styled.div`
-height: 30px;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-&:hover {
-  background-color: lightgrey;
-}
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
 
 const cuts = [
