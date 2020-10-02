@@ -17,6 +17,8 @@ const ImageViewDiv = styled.div`
 const Image = styled.img`
   border: 0;
   width: 400px;
+  height: 400px;
+  object-fit: cover;
   align-self: center;
 `;
 
