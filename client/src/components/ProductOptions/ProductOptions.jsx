@@ -12,8 +12,10 @@ const ProductOptionsDiv = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 375px;
+  min-width: 375;
   height: 500px;
-`;
+  min-height: 500px;
+  `;
 
 const MetalName = styled.div`
   font-size: 12px;
