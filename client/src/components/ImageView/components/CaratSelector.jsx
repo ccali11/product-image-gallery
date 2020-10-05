@@ -37,6 +37,19 @@ const CaratLabel = styled.span`
   }
 `;
 
+const Label = styled.span`
+  position: absolute;
+  font-size: 13px;
+`;
+
+const Label1 = styled(Label)`
+
+`;
+
+const Label2 = styled(Label)`
+  right: 20px;
+`;
+
 const CaratSelector = (props) => {
   const [radioCarat, setRadioCarat] = useState(150);
 
@@ -54,6 +67,7 @@ const CaratSelector = (props) => {
   return (
     <CaratSelectorDiv>
       <form>
+        <Label1>1/2 Carat</Label1>
         <CaratOptionSpan>
           <CaratOptions type='radio' name='carat-option' onClick={clickHandler['50']}/>
           <CaratLabel>1/2</CaratLabel>
@@ -70,6 +84,7 @@ const CaratSelector = (props) => {
           <CaratOptions type='radio' name='carat-option' onClick={clickHandler['200']}/>
           <CaratLabel>2</CaratLabel>
         </CaratOptionSpan>
+        <Label2>2 Carat</Label2>
       </form>
     </CaratSelectorDiv>
   );
