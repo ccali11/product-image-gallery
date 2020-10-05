@@ -23,7 +23,7 @@ const CutMenu = styled.div`
   top: -180px;
   border: 1px solid lightgrey;
   background-color: white;
-  z-index: 1;
+  z-index: 10;
   min-width: 100%;
   ${DropdownDiv}:hover & {
     display: block;

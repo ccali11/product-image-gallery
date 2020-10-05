@@ -56,28 +56,27 @@ const ImageView = (props) => {
     }
   };
 
-  const zoomRender = () => {
-    if (imgSource.length > 0) {
-      return (
-        <CursorZoom
-            style={{'align-self': 'center'}}
-            image={{
-                src: imgSource,
-                width: 400,
-                height: 400
-            }}
-            zoomImage={{
-                src: imgSource,
-                width: 1200,
-                height: 1200
-            }}
-            size={200}
-        />
-      );
-    } else {
-      return null;
-    }
-  };
+  // const zoomRender = () => {
+  //   if (imgSource.length > 0) {
+  //     return (
+  //       <CursorZoom
+  //           image={{
+  //               src: imgSource,
+  //               width: 400,
+  //               height: 400
+  //           }}
+  //           zoomImage={{
+  //               src: imgSource,
+  //               width: 1200,
+  //               height: 1200
+  //           }}
+  //           size={200}
+  //       />
+  //     );
+  //   } else {
+  //     return null;
+  //   }
+  // };
 
   useEffect(() => {
     if (state.images) {
@@ -87,7 +86,7 @@ const ImageView = (props) => {
 
   return (
     <ImageViewDiv>
-      {zoomRender()}
+      <Image src={imgSource} />
       {selectorRender()}
     </ImageViewDiv>
   );
