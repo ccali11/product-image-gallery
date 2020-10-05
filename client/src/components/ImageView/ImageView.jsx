@@ -68,7 +68,7 @@ const ImageView = (props) => {
             }}
             zoomImage={{
                 src: imgSource,
-                width: 1600,
+                width: 1200,
                 height: 1200
             }}
             size={200}
