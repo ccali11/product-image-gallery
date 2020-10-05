@@ -6,6 +6,7 @@ import {
   GlassMagnifier,
   SideBySideMagnifier,
   PictureInPictureMagnifier,
+  MagnifierPreview,
   MOUSE_ACTIVATION,
   TOUCH_ACTIVATION
 } from "react-image-magnifiers";
@@ -27,13 +28,12 @@ const ImageViewDiv = styled.div`
   margin-right: 40px;
 `;
 
-const Image = styled.img`
-  display: ${props => (props.src ? 'block' : 'none')};
-  border: 0;
+const Image = styled.div`
+  display: block;
+  position: relative;
   width: 400px;
   height: 400px;
-  object-fit: cover;
-  align-self: center;
+  overflow: hidden;
 `;
 
 const Selectors = styled.div`
@@ -64,22 +64,21 @@ const ImageView = (props) => {
   const zoomRender = () => {
     if (imgSource.length > 0) {
       return (
-        <div>
+        <Image>
           <SideBySideMagnifier
             style={{
               width: '400px',
               height: '400px',
-              left: '100px',
+              top: '0',
               position: 'absolute',
-              'z-index': '10'
+              'z-index': '1'
             }}
             magnifierSize='100px'
             imageSrc={imgSource}
             imageAlt='Setting Image'
-            fillAvailableSpace={false}
-            fillGapLeft={50}
+            alwaysInPlace={true}
           />
-        </div>
+        </Image>
       );
     } else {
       return null;
