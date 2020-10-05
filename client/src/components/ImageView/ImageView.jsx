@@ -15,6 +15,7 @@ import Description from './components/Description.jsx';
 
 const ImageViewDiv = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 600px;
   min-width: 600px;
@@ -22,7 +23,6 @@ const ImageViewDiv = styled.div`
   min-height: 540px;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
   margin-left: 40px;
   margin-right: 40px;
 `;
@@ -65,15 +65,19 @@ const ImageView = (props) => {
     if (imgSource.length > 0) {
       return (
         <div>
-          <GlassMagnifier
+          <SideBySideMagnifier
             style={{
               width: '400px',
-              height: '400px'
+              height: '400px',
+              left: '100px',
+              position: 'absolute',
+              'z-index': '10'
             }}
-            magnifierSize='250px'
-            square={true}
+            magnifierSize='100px'
             imageSrc={imgSource}
             imageAlt='Setting Image'
+            fillAvailableSpace={false}
+            fillGapLeft={50}
           />
         </div>
       );
