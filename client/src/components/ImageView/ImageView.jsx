@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import CursorZoom from 'react-cursor-zoom';
+import {
+  Magnifier,
+  GlassMagnifier,
+  SideBySideMagnifier,
+  PictureInPictureMagnifier,
+  MOUSE_ACTIVATION,
+  TOUCH_ACTIVATION
+} from "react-image-magnifiers";
 import CaratSelector from './components/CaratSelector.jsx';
 import CutSelector from './components/CutSelector.jsx';
 import Description from './components/Description.jsx';
@@ -29,8 +36,6 @@ const Image = styled.img`
   align-self: center;
 `;
 
-
-
 const Selectors = styled.div`
   display: flex;
   flex-direction: column;
@@ -56,27 +61,26 @@ const ImageView = (props) => {
     }
   };
 
-  // const zoomRender = () => {
-  //   if (imgSource.length > 0) {
-  //     return (
-  //       <CursorZoom
-  //           image={{
-  //               src: imgSource,
-  //               width: 400,
-  //               height: 400
-  //           }}
-  //           zoomImage={{
-  //               src: imgSource,
-  //               width: 1200,
-  //               height: 1200
-  //           }}
-  //           size={200}
-  //       />
-  //     );
-  //   } else {
-  //     return null;
-  //   }
-  // };
+  const zoomRender = () => {
+    if (imgSource.length > 0) {
+      return (
+        <div>
+          <GlassMagnifier
+            style={{
+              width: '400px',
+              height: '400px'
+            }}
+            magnifierSize='250px'
+            square={true}
+            imageSrc={imgSource}
+            imageAlt='Setting Image'
+          />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
 
   useEffect(() => {
     if (state.images) {
@@ -86,7 +90,7 @@ const ImageView = (props) => {
 
   return (
     <ImageViewDiv>
-      <Image src={imgSource} />
+      {zoomRender()}
       {selectorRender()}
     </ImageViewDiv>
   );
