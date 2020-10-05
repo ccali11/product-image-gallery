@@ -1,0 +1,9 @@
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static00.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static01.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static02.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static03.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static04.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static05.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static06.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static07.png
+https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static08.png

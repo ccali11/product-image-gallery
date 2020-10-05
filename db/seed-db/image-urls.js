@@ -3,6 +3,7 @@ const path = require('path');
 
 const urlFile = 's3urls.txt';
 const presUrl = 's3urls-pres.txt';
+const presStatUrl = 's3urls-pres-static.txt';
 
 // Names and corresponding directories from url
 const nameDir = {
@@ -81,4 +82,16 @@ const getPres = async () => {
     });
 };
 
-module.exports = { getAll, getPres, getType, getRandom, getRandomByType, nameDir };
+const getPresStatic = async () => {
+  return fs.promises.readFile(path.join(__dirname, presStatUrl))
+    .then((buffer) => {
+      const buffString = buffer.toString();
+      const urls = buffString.split('\n');
+      return urls;
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+}
+
+module.exports = { getAll, getPres, getPresStatic, getType, getRandom, getRandomByType, nameDir };

@@ -2,6 +2,7 @@ const { getAll, getType, getRandomByType, getRandom } = require('./image-urls.js
 const { Product, Cost, StaticImage, Image, sync } = require('../Models.js');
 const faker = require('faker');
 const { Op } = require('sequelize');
+const { presGet, presStat } = require('./seed-pres.js');
 
 // Writes 100 names to the Products table
 
@@ -95,5 +96,11 @@ module.exports = { productGet, staticImageGet, imageGet };
     })
     .then(async () => {
       await imageGet();
+    })
+    .then(async () => {
+      await presGet();
+    });
+    .then(async () => {
+      await presStat();
     });
 })();

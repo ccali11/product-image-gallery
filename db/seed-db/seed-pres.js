@@ -1,4 +1,4 @@
-const { getPres } = require('./image-urls.js');
+const { getPres, getPresStatic } = require('./image-urls.js');
 const { Product, Cost, StaticImage, Image, sync } = require('../Models.js');
 
 const presGet = async () => {
@@ -22,6 +22,17 @@ const presGet = async () => {
   }
 };
 
-(async () => {
-  await presGet();
-})();
+const presStat = async () => {
+  let statUrls = await getPresStatic();
+  let id = 1;
+  for (let url of statUrls) {
+    await StaticImage.update({ thumb: url, image: url, product_id: 1}, {
+      where: {
+        id: id
+      }
+    });
+    id++;
+  }
+}
+
+module.exports = { presGet, presStat };
