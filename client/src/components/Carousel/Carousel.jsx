@@ -47,7 +47,7 @@ const Carousel = (props) => {
   }, [props.state.thumbs]);
 
   return (
-    <CarouselDiv onClick={e => props.set.setSelected(thumbs.indexOf(e.target.src))} hideScrollbars={false}>
+    <CarouselDiv onClick={e => props.set.setSelected((thumbs.indexOf(e.target.src) !== -1) ? thumbs.indexOf(e.target.src) : props.state.selected)} hideScrollbars={false}>
       {renderThumbs(thumbs, props.state.selected)}
     </CarouselDiv>
   );
