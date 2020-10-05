@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import CursorZoom from 'react-cursor-zoom';
 import CaratSelector from './components/CaratSelector.jsx';
 import CutSelector from './components/CutSelector.jsx';
 import Description from './components/Description.jsx';
@@ -13,6 +14,7 @@ const ImageViewDiv = styled.div`
   height: 540px;
   min-height: 540px;
   justify-content: space-between;
+  align-items: center;
   overflow: hidden;
   margin-left: 40px;
   margin-right: 40px;
@@ -54,6 +56,29 @@ const ImageView = (props) => {
     }
   };
 
+  const zoomRender = () => {
+    if (imgSource.length > 0) {
+      return (
+        <CursorZoom
+            style={{'align-self': 'center'}}
+            image={{
+                src: imgSource,
+                width: 400,
+                height: 400
+            }}
+            zoomImage={{
+                src: imgSource,
+                width: 1600,
+                height: 1200
+            }}
+            size={200}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
   useEffect(() => {
     if (state.images) {
       setImgSource(state.images[state.selected]);
@@ -62,7 +87,7 @@ const ImageView = (props) => {
 
   return (
     <ImageViewDiv>
-      <Image src={imgSource} />
+      {zoomRender()}
       {selectorRender()}
     </ImageViewDiv>
   );
