@@ -35,4 +35,12 @@ const presStat = async () => {
   }
 }
 
-module.exports = { presGet, presStat };
+const presCost = async () => {
+  Cost.update({y: 1950, r: 1950, w: 1950, p: 2250}, {
+    where: {
+      product_id: 1
+    }
+  })
+}
+
+module.exports = { presGet, presStat, presCost };
