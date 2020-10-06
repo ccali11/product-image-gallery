@@ -13,12 +13,11 @@ const CarouselDiv = styled(ScrollContainer)`
   flex-direction: column;
   width: 110px;
   &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-    background-color: #F5F5F5;
+    background-color: lightgrey;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
     background-color: #F5F5F5;
   }
   &::-webkit-scrollbar-thumb {
@@ -48,7 +47,7 @@ const Carousel = (props) => {
   }, [props.state.thumbs]);
 
   return (
-    <CarouselDiv onClick={e => props.set.setSelected(thumbs.indexOf(e.target.src))} hideScrollbars={false}>
+    <CarouselDiv onClick={e => props.set.setSelected((thumbs.indexOf(e.target.src) !== -1) ? thumbs.indexOf(e.target.src) : props.state.selected)} hideScrollbars={false}>
       {renderThumbs(thumbs, props.state.selected)}
     </CarouselDiv>
   );

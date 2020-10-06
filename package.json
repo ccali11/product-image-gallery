@@ -24,7 +24,7 @@
     ]
   },
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
     "test": "jest --detectOpenHandles",
     "build": "webpack --config ./webpack.config.js --watch",
     "seed": "node ./db/seed-db/seed.js"
@@ -46,6 +46,7 @@
     "mysql2": "^2.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-image-magnifiers": "^1.4.0",
     "react-indiana-drag-scroll": "^1.7.0",
     "react-star-ratings": "^2.3.0",
     "sequelize": "^6.3.5",

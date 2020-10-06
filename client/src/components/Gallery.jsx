@@ -33,6 +33,11 @@ const Gallery = () => {
   const [thumbs, setThumbs] = useState(null);
   const [images, setImages] = useState();
   const [selected, setSelected] = useState(0);
+  const [productData, setProductData] = useState({
+    name: null,
+    rating: 0,
+    ratingcount: 0
+  });
 
   useEffect(() => {
     axios.get(`http://localhost:3030/gallery/${pid}/${metal}/${cut}/${carat}`)
@@ -42,12 +47,26 @@ const Gallery = () => {
       });
   }, [pid, metal, cut, carat]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:3030/static/${pid}`)
+      .then((results) => {
+        setProductData({
+          name: results.data.name,
+          rating: results.data.rating,
+          ratingcount: results.data.ratingcount
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  }, [pid]);
+
   return(
     <Container>
       <GlobalStyle />
       <Carousel state={{ thumbs, selected }} set={{ setSelected }}/>
-      <ImageView state={{ carat, cut, metal, pid, selected, images, thumbs }} set={{ setCut, setCarat, setThumbs }} />
-      <ProductOptions state={{ metal, pid }} set={{ setMetal, setThumbs, setImages }} />
+      <ImageView state={{ carat, cut, metal, pid, selected, images, thumbs, productData }} set={{ setCut, setCarat, setThumbs }} />
+      <ProductOptions state={{ metal, pid, productData }} set={{ setMetal, setThumbs, setImages }} />
     </Container>
   );
 }
