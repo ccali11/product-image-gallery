@@ -71,7 +71,7 @@ const ImageView = (props) => {
               height: '400px',
               top: '0',
               position: 'absolute',
-              'z-index': '1'
+              'zIndex': '1'
             }}
             magnifierSize='100px'
             imageSrc={imgSource}
