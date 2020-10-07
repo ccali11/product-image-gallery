@@ -87,23 +87,35 @@ module.exports = { productGet, staticImageGet, imageGet };
   return await sync()
     .then(async () => {
       await productGet();
+      console.log('productGet complete');
     })
     .then(async () => {
       await costGet();
+      console.log('costGet complete');
     })
     .then(async () => {
       await staticImageGet();
+      console.log('staticImageGet complete');
     })
     .then(async () => {
+      console.log('imageGet starting. (This may take a while)');
       await imageGet();
+      console.log('imageGet complete');
     })
     .then(async () => {
       await presGet();
-    });
+      console.log('presGet complete');
+    })
     .then(async () => {
       await presStat();
+      console.log('presStat complete');
     })
     .then(async () => {
       await presCost();
+      console.log('presCost complete');
+      console.log('Seed script has finished running.');
+    })
+    .catch((err) => {
+      console.error(err);
     });
 })();

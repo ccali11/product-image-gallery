@@ -1,6 +1,7 @@
 const { Sequelize, Model, DataTypes} = require('sequelize');
 
 const sequelize = new Sequelize('productimages', 'root', '', {
+  logging: false,
   host: 'localhost',
   dialect: 'mysql'
 });
