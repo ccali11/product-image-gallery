@@ -1,6 +1,9 @@
 const { Sequelize, Model, DataTypes} = require('sequelize');
+const USERNAME = 'root';
+const PASSWORD = '';
 
-const sequelize = new Sequelize('productimages', 'root', 'password!', {
+const sequelize = new Sequelize('productimages', USERNAME, PASSWORD, {
+  logging: false,
   host: 'localhost',
   dialect: 'mysql'
 });
