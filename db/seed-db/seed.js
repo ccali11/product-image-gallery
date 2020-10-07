@@ -99,7 +99,7 @@ module.exports = { productGet, staticImageGet, imageGet };
     })
     .then(async () => {
       await presGet();
-    });
+    })
     .then(async () => {
       await presStat();
     })
