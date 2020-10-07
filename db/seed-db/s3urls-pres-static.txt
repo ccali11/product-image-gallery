@@ -6,4 +6,3 @@ https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/stati
 https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static05.png
 https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static06.png
 https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static07.png
-https://radiant-dearth.s3.us-east-2.amazonaws.com/presentation/static-pres/static08.png
