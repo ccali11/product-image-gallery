@@ -26,7 +26,7 @@ const Container = styled.div`
   `;
 
 const Gallery = () => {
-  const [pid, setPid] = useState(1);
+  const [pid, setPid] = useState((window.location.pathname.slice(1)) ? window.location.pathname.slice(1) : 1);
   const [metal, setMetal] = useState('white');
   const [cut, setCut] = useState('asscher');
   const [carat, setCarat] = useState(150);
@@ -39,10 +39,10 @@ const Gallery = () => {
     ratingcount: 0
   });
 
-  useEffect(() => {
-    const pathname = window.location.pathname.slice(1);
-    if (pathname) { return setPid(window.location.pathname.slice(1)) }
-  }, [])
+  // useEffect(() => {
+  //   const pathname = window.location.pathname.slice(1);
+  //   if (pathname) { return setPid(window.location.pathname.slice(1)) }
+  // }, [])
 
   useEffect(() => {
     axios.get(`http://localhost:3030/gallery/${pid}/${metal}/${cut}/${carat}`)
