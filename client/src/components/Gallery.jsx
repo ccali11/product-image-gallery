@@ -39,11 +39,6 @@ const Gallery = () => {
     ratingcount: 0
   });
 
-  // useEffect(() => {
-  //   const pathname = window.location.pathname.slice(1);
-  //   if (pathname) { return setPid(window.location.pathname.slice(1)) }
-  // }, [])
-
   useEffect(() => {
     axios.get(`http://localhost:3030/gallery/${pid}/${metal}/${cut}/${carat}`)
       .then((defaults) => {
