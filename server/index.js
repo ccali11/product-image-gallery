@@ -9,7 +9,11 @@ const port = 3030;
 // CORS is only used for Jest testing
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist/')));
+
+app.get('/:product_id', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 // This API endpoint returns a set of default URLs to populate the carousel
 app.get('/gallery/:product_id/:metal/:cut/:carat', (req, res) => {
