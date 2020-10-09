@@ -24,10 +24,10 @@
     ]
   },
   "scripts": {
-    "start": "node ./server/index.js",
+    "start": "nodemon ./server/index.js",
     "test": "jest --detectOpenHandles",
     "build": "webpack --config ./webpack.config.js --watch",
-    "seed": "node ./db/seed-db/seed.js"
+    "seed": "sudo mysql -u root < ./db/db.sql && node ./db/seed-db/seed.js"
   },
   "repository": {
     "type": "git",
